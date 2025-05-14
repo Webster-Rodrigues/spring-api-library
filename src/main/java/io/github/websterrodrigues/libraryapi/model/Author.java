@@ -5,7 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity //Mapeamento JPA
@@ -26,6 +27,9 @@ public class Author {
 
     @Column(name = "nacionalidade", nullable = false, length = 50)
     private String nationality;
+
+    @OneToMany(mappedBy = "author")
+    private List<Book> books = new ArrayList<>();
 
     @Deprecated //Impede que o construtor padrão seja utilizado
     public Author(){
