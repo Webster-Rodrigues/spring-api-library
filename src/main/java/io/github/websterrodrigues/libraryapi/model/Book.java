@@ -4,6 +4,7 @@ import io.github.websterrodrigues.libraryapi.model.enums.Genre;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -29,7 +30,7 @@ public class Book {
     private Genre genre;
 
     @Column(name = "preco", precision = 18, scale = 2)
-    private Double price;
+    private BigDecimal price;
 
     @ManyToOne
     @JoinColumn(name = "autor_id")
