@@ -3,6 +3,7 @@ package io.github.websterrodrigues.libraryapi.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.UUID;
 @Table(name = "autor")
 @Getter
 @Setter
+@ToString
 public class Author {
 
     @Id
@@ -28,7 +30,8 @@ public class Author {
     @Column(name = "nacionalidade", nullable = false, length = 50)
     private String nationality;
 
-    @OneToMany(mappedBy = "author")
+    //@OneToMany(mappedBy = "author")
+    @Transient
     private List<Book> books = new ArrayList<>();
 
     @Deprecated //Impede que o construtor padrão seja utilizado
@@ -43,6 +46,5 @@ public class Author {
         this.nationality = nationality;
         this.dateOfBirth = dateOfBirth;
     }
-
 
 }

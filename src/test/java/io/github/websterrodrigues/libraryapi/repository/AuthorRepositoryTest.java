@@ -1,0 +1,72 @@
+package io.github.websterrodrigues.libraryapi.repository;
+
+import io.github.websterrodrigues.libraryapi.model.Author;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
+@SpringBootTest
+public class AuthorRepositoryTest {
+
+    @Autowired
+    AuthorRepository repository;
+
+    @Test
+    public void saveTest(){
+        Author author = new Author();
+        author.setName("TESTEEE2");
+        author.setNationality("ITALIANO");
+        author.setDateOfBirth(LocalDate.of(1990, 1, 1));
+
+        repository.save(author);
+    }
+
+    @Test
+    public void updateTest(){
+        var id = UUID.fromString("e19524b1-a8ff-46b1-8973-041922fd7b39");
+
+        Optional<Author> author = repository.findById(id);
+
+        if(author.isPresent()){
+            System.out.println("Autor encontrado: " + author.get().getName());
+            System.out.println("Data ANTIGA: " +author.get().getDateOfBirth());
+
+            author.get().setDateOfBirth(LocalDate.of(2005, 1, 1));
+            repository.save(author.get());
+        }
+
+    }
+
+    @Test
+    public void ListTest(){
+        List<Author> list = repository.findAll();
+        list.forEach(System.out::println);
+    }
+
+    @Test
+    public void countAuthorsTest(){
+        System.out.println("Total de autores: " +repository.count());
+    }
+
+    @Test
+    public void deleteAuthorTest(){
+        var id = UUID.fromString("e19524b1-a8ff-46b1-8973-041922fd7b39");
+
+        Optional<Author> author = repository.findById(id);
+        if(author.isPresent()){
+            repository.delete(author.get());
+        }
+    }
+
+    @Test
+    public void deleteAuthorByIdTest(){
+        var id = UUID.fromString("3e9fe1e5-93ac-4492-b606-e94dfdfee755");
+        repository.deleteById(id);
+    }
+
+}

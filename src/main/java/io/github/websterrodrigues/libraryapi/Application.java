@@ -11,18 +11,7 @@ import java.time.LocalDate;
 public class Application {
 
 	public static void main(String[] args) {
-		var context = SpringApplication.run(Application.class, args);
-		AuthorRepository repository = context.getBean(AuthorRepository.class);
-		examplesSaveRegister(repository);
+		SpringApplication.run(Application.class, args);
 	}
 
-	public static void examplesSaveRegister(AuthorRepository repository){
-		Author author = new Author();
-		author.setName("AUTORTESTE");
-		author.setNationality("BRASILEIRO");
-		author.setDateOfBirth(LocalDate.of(1990, 1, 1));
-
-		repository.save(author);
-
-	}
 }
