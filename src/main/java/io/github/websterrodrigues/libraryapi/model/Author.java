@@ -1,20 +1,16 @@
 package io.github.websterrodrigues.libraryapi.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity //Mapeamento JPA
 @Table(name = "autor")
-@Getter
-@Setter
-@ToString
 public class Author {
 
     @Id
@@ -34,9 +30,8 @@ public class Author {
     @Transient
     private List<Book> books = new ArrayList<>();
 
-    @Deprecated //Impede que o construtor padrão seja utilizado
+
     public Author(){
-        //Para uso do framework
 
     }
 
@@ -47,4 +42,51 @@ public class Author {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Author author = (Author) o;
+        return Objects.equals(id, author.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 }
