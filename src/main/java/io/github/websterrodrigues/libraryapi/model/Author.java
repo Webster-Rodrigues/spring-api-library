@@ -26,7 +26,8 @@ public class Author {
     @Column(name = "nacionalidade", nullable = false, length = 50)
     private String nationality;
 
-    @OneToMany(mappedBy = "author")
+
+    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
     @Transient
     private List<Book> books = new ArrayList<>();
 
@@ -88,5 +89,15 @@ public class Author {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", nationality='" + nationality + '\'' +
+                '}';
     }
 }

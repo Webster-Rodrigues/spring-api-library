@@ -3,6 +3,7 @@ package io.github.websterrodrigues.libraryapi.repository;
 import io.github.websterrodrigues.libraryapi.model.Author;
 import io.github.websterrodrigues.libraryapi.model.Book;
 import io.github.websterrodrigues.libraryapi.model.enums.Genre;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -110,6 +111,19 @@ public class AuthorRepositoryTest {
         author.getBooks().addAll(Arrays.asList(book1, book2, book3));
         repository.save(author);
         bookRepository.saveAll(author.getBooks());
+    }
+
+    @Test
+    void listBooksAuthorTest(){
+        var id = UUID.fromString("ede81a6a-a4a6-4f68-997c-5214c93810ad");
+        var author = repository.findById(id).get();
+
+        List<Book> listBooks =  bookRepository.findByAuthor(author);
+        //author
+
+        listBooks.forEach(System.out::println);
+
+
     }
 
 }

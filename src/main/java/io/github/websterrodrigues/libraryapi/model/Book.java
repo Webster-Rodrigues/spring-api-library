@@ -31,7 +31,8 @@ public class Book {
     @Column(name = "preco", precision = 18, scale = 2)
     private BigDecimal price;
 
-    @ManyToOne//(cascade = CascadeType.ALL)//Ações que serão feitas no livro, serão feitas no autor também
+    @ManyToOne(fetch = FetchType.LAZY) //- dados da entidade relacionada não serão carregados imediatamente
+    //(cascade = CascadeType.ALL)//Ações que serão feitas no livro, serão feitas no autor também
     @JoinColumn(name = "autor_id")
     private Author author;
 
@@ -115,5 +116,17 @@ public class Book {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", isbn='" + isbn + '\'' +
+                ", title='" + title + '\'' +
+                ", publicationDate=" + publicationDate +
+                ", genre=" + genre +
+                ", price=" + price +
+                '}';
     }
 }
