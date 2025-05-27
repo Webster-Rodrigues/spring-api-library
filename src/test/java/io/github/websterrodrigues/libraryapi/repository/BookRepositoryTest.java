@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @SpringBootTest
@@ -73,6 +74,13 @@ public class BookRepositoryTest {
     void delteTest(){
         UUID bookId = UUID.fromString("18044394-f036-47ea-858e-a8bdc6ab0717");
         repository.deleteById(bookId);
+    }
+
+    @Test
+    void findByTitleTest() {
+        List<Book> list = repository.findByTitle("Test Book Cascade");
+        list.forEach(System.out::println);
+
     }
 
 

@@ -3,7 +3,6 @@ package io.github.websterrodrigues.libraryapi.repository;
 import io.github.websterrodrigues.libraryapi.model.Author;
 import io.github.websterrodrigues.libraryapi.model.Book;
 import io.github.websterrodrigues.libraryapi.model.enums.Genre;
-import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
