@@ -10,7 +10,8 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-        ddl-auto: update #Atualiza o banco automaticamente
+        #ddl-auto: update #Atualiza o banco automaticamente
+        ddl-auto: none
     properties:
       hibernate.format_sql: true
 
