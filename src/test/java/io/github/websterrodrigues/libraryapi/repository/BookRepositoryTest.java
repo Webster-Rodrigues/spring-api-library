@@ -26,8 +26,8 @@ public class BookRepositoryTest {
         Book book = new Book();
         book.setIsbn("123456789");
         book.setPrice(BigDecimal.valueOf(100));
-        book.setTitle("Test Book");
-        book.setGenre(Genre.FANTASIA);
+        book.setTitle("Test Bookficação");
+        book.setGenre(Genre.FICCAO);
         book.setPublicationDate(LocalDate.of(2002, 1, 1));
 
         Author author = authorRepository.findById(UUID.fromString("36f2e4c1-86b1-4b75-b859-540d221dbd43")).orElse(null);
@@ -83,5 +83,44 @@ public class BookRepositoryTest {
 
     }
 
+    @Test
+    void listBooksWithQuerryJPQL(){
+        var result = repository.listAllBooksByTitle();
+        result.forEach(System.out::println);
+    }
+
+    @Test
+    void listAuthorsByBookTest(){
+        var result= repository.listAuthorsByBook();
+        result.forEach(System.out::println);
+    }
+
+    @Test
+    void listGenresAuthorsBraziliansTest(){
+        var result = repository.listGenresAuthorsBrazilians();
+        result.forEach(System.out::println);
+    }
+
+    @Test
+    void listByGenreParamTest(){
+        var result = repository.findByGenre(Genre.FANTASIA);
+        result.forEach(System.out::println);
+    }
+
+    @Test
+    void listByGenreParamPositionalParametersTest(){
+        var result = repository.findByGenrePositionalParameters(Genre.FANTASIA, "title");
+        result.forEach(System.out::println);
+    }
+
+    @Test
+    void deleteByGenreTest(){
+        repository.deleteByGenre(Genre.FICCAO);
+    }
+
+    @Test
+    void updateDateTeste(){
+        repository.updateDate(LocalDate.of(2000,10, 1),UUID.fromString("1e21313b-b812-4df7-9232-eb5e88609b06"));
+    }
 
 }
