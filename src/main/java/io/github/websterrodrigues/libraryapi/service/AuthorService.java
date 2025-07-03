@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -39,11 +40,23 @@ public class AuthorService {
         catch (Exception e){
             throw new RuntimeException("Erro ao excluir autor: " + e.getMessage(), e);
         }
-
     }
 
+    public List<Author> findByFilter(String name, String nationality) {
+        if (name != null && nationality != null) {
+            return repository.findByNameAndNationality(name, nationality);
+        }
 
+        if(name != null) {
+            return repository.findByName(name);
+        }
 
+        if (nationality != null){
+            return repository.findByNationality(nationality);
+        }
 
+        return repository.findAll();
+
+    }
 
 }

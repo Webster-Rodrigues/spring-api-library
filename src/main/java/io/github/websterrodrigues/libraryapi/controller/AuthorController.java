@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/authors")
@@ -59,6 +61,22 @@ public class AuthorController {
         catch (ObjectNotFoundException e){
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping
+    public ResponseEntity<List<AuthorDTO>> findByFilter(
+            @RequestParam(value = "nome", required = false) String name,
+            @RequestParam(value = "nacionalidade", required = false) String nationality){
+
+        List<Author> list = service.findByFilter(name, nationality);
+        List<AuthorDTO> listDTO = list.stream().map(author ->
+                new AuthorDTO(
+                author.getId(),
+                author.getName(),
+                author.getDateOfBirth(),
+                author.getNationality())).toList();
+        return ResponseEntity.ok(listDTO);
 
     }
 }
+
