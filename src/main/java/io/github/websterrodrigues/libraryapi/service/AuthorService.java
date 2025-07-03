@@ -21,6 +21,11 @@ public class AuthorService {
         return repository.save(author);
     }
 
+    public void update(Author author){
+        repository.findById(author.getId()).orElseThrow(() -> new ObjectNotFoundException("Autor não encontrado", author.getId()));
+        repository.save(author);
+    }
+
     public Optional<Author> getDetails(UUID id){
         return repository.findById(id);
     }
@@ -54,9 +59,7 @@ public class AuthorService {
         if (nationality != null){
             return repository.findByNationality(nationality);
         }
-
         return repository.findAll();
-
     }
 
 }

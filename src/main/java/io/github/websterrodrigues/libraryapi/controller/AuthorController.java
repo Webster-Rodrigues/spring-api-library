@@ -76,6 +76,23 @@ public class AuthorController {
                 author.getDateOfBirth(),
                 author.getNationality())).toList();
         return ResponseEntity.ok(listDTO);
+    }
+
+    @PutMapping({"{id}"})
+    public ResponseEntity<Void> update(@PathVariable String id, @RequestBody AuthorDTO dto){
+        try{
+            UUID idAuthor = UUID.fromString(id);
+            var author = dto.mapedAuthor();
+            author.setId(idAuthor); //Garante que o ID do autor seja o mesmo do parâmetro da URL
+            service.update(author);
+            return ResponseEntity.noContent().build();
+        }
+        catch (ObjectNotFoundException e){
+            return ResponseEntity.notFound().build();
+        }
+        catch (IllegalArgumentException e){
+            return ResponseEntity.badRequest().build();
+        }
 
     }
 }
