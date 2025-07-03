@@ -3,9 +3,11 @@ package io.github.websterrodrigues.libraryapi.dto;
 import io.github.websterrodrigues.libraryapi.model.Author;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 //Record classe imutável
 public record AuthorDTO(
+        UUID id,
         String name,
         LocalDate dateOfBirth,
         String nationality) {
