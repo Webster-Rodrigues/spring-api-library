@@ -1,10 +1,11 @@
 package io.github.websterrodrigues.libraryapi.controller;
 
 import io.github.websterrodrigues.libraryapi.dto.AuthorDTO;
-import io.github.websterrodrigues.libraryapi.dto.ResponseError;
+import io.github.websterrodrigues.libraryapi.exceptions.ResponseError;
 import io.github.websterrodrigues.libraryapi.exceptions.DuplicateRecordException;
 import io.github.websterrodrigues.libraryapi.model.Author;
 import io.github.websterrodrigues.libraryapi.service.AuthorService;
+import jakarta.validation.Valid;
 import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -17,7 +18,6 @@ import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/authors")
@@ -27,7 +27,7 @@ public class AuthorController {
     public AuthorService service;
 
     @PostMapping
-    public ResponseEntity<Object> save(@RequestBody AuthorDTO authorDTO){
+    public ResponseEntity<Object> save(@RequestBody @Valid AuthorDTO authorDTO){
         try {
             Author author = authorDTO.mapedAuthor();
             service.save(author);
@@ -92,7 +92,7 @@ public class AuthorController {
     }
 
     @PutMapping({"{id}"})
-    public ResponseEntity<Object> update(@PathVariable String id, @RequestBody AuthorDTO dto){
+    public ResponseEntity<Object> update(@PathVariable String id, @RequestBody @Valid AuthorDTO dto){
         try{
             UUID idAuthor = UUID.fromString(id);
             var author = dto.mapedAuthor();

@@ -1,10 +1,10 @@
-package io.github.websterrodrigues.libraryapi.dto;
+package io.github.websterrodrigues.libraryapi.exceptions;
 
 import org.springframework.http.HttpStatus;
 
 import java.util.List;
 
-public record ResponseError(int Status, String message, List<FieldError> errors) {
+public record ResponseError(int Status, String message, List<ValidationError> errors) {
 
     public static ResponseError responseError(String message){
         return new ResponseError(HttpStatus.BAD_REQUEST.value(), message, List.of());
