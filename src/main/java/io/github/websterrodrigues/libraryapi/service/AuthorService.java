@@ -5,6 +5,8 @@ import io.github.websterrodrigues.libraryapi.repository.AuthorRepository;
 import io.github.websterrodrigues.libraryapi.validator.AuthorValidator;
 import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -45,20 +47,21 @@ public class AuthorService {
         repository.delete(author);
     }
 
-    public List<Author> findByFilter(String name, String nationality) {
-        if (name != null && nationality != null) {
-            return repository.findByNameAndNationality(name, nationality);
-        }
+    public List<Author> searchByExample(String name, String nationality){
+        //Example trabalha com o exemplo de Author
+        Author author = new Author();
+        author.setName(name);
+        author.setNationality(nationality);
 
-        if(name != null) {
-            return repository.findByName(name);
-        }
+        //ExampleMatcher permite configurar como o exemplo será comparado
+        ExampleMatcher matcher = ExampleMatcher
+                .matching()
+                .withIgnoreCase()//Ignora maiúsculas e minúsculas
+                .withIgnoreNullValues()//Ignora valores nulos.
+                .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);//Configura o exemplo para ser comparado como contendo.
 
-        if (nationality != null){
-            return repository.findByNationality(nationality);
-        }
-        return repository.findAll();
+        Example<Author> authorExample = Example.of(author, matcher);
+        return repository.findAll(authorExample);
     }
-
 
 }
