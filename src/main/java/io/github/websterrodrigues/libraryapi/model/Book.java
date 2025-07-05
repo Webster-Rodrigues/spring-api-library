@@ -2,14 +2,19 @@ package io.github.websterrodrigues.libraryapi.model;
 
 import io.github.websterrodrigues.libraryapi.model.enums.Genre;
 import jakarta.persistence.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
 @Entity
 @Table(name = "tb_livro")
+@EntityListeners(AuditingEntityListener.class)
 public class Book {
 
     @Id
@@ -35,6 +40,19 @@ public class Book {
     //(cascade = CascadeType.ALL)//Ações que serão feitas no livro, serão feitas no autor também
     @JoinColumn(name = "id_autor")
     private Author author;
+
+
+    @CreatedDate //Toda vez que for persistir ele coloca a data atual automaticamente
+    @Column(name = "data_cadastro")
+    private LocalDateTime registrationDate;
+
+    @LastModifiedDate
+    @Column(name = "data_atualizacao")
+    private LocalDateTime updateDate;
+
+    @Column(name = "id_usuario")
+    private UUID userId;
+
 
 
     public Book(UUID id, String isbn, String title, LocalDate publicationDate, Genre genre, BigDecimal price, Author author) {

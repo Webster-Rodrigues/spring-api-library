@@ -1,8 +1,9 @@
 package io.github.websterrodrigues.libraryapi.controller;
 
 import io.github.websterrodrigues.libraryapi.dto.AuthorDTO;
-import io.github.websterrodrigues.libraryapi.exceptions.ResponseError;
+import io.github.websterrodrigues.libraryapi.dto.mappers.AuthorMapper;
 import io.github.websterrodrigues.libraryapi.exceptions.DuplicateRecordException;
+import io.github.websterrodrigues.libraryapi.exceptions.ResponseError;
 import io.github.websterrodrigues.libraryapi.model.Author;
 import io.github.websterrodrigues.libraryapi.service.AuthorService;
 import jakarta.validation.Valid;
@@ -16,7 +17,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -24,12 +24,15 @@ import java.util.UUID;
 public class AuthorController {
 
     @Autowired
-    public AuthorService service;
+    private AuthorService service;
+
+    @Autowired
+    private AuthorMapper mapper;
 
     @PostMapping
-    public ResponseEntity<Object> save(@RequestBody @Valid AuthorDTO authorDTO){
+    public ResponseEntity<Object> save(@RequestBody @Valid AuthorDTO dto){
         try {
-            Author author = authorDTO.mapedAuthor();
+            Author author = mapper.toEntity(dto);
             service.save(author);
 
             //ServletUriComponentsBuilder: Cria uma URI; fromCurrentRequest: Pega os dados da requisição atual; buildAndExpand: Sinaliza qual parâmetro séra colocado no path
@@ -47,18 +50,11 @@ public class AuthorController {
     @GetMapping("{id}")
     public ResponseEntity<AuthorDTO> getDetails(@PathVariable String id){
         var idAuthor = UUID.fromString(id);
-        Optional<Author> authorOP = service.getDetails(idAuthor);
-        if (authorOP.isPresent()){
-            Author author = authorOP.get();
-            AuthorDTO authorDTO = new AuthorDTO(
-                    author.getId(),
-                    author.getName(),
-                    author.getDateOfBirth(),
-                    author.getNationality());
-            return ResponseEntity.ok(authorDTO);
-        }
-        return ResponseEntity.notFound().build();
 
+        return service.getDetails(idAuthor)
+                .map(author -> {AuthorDTO dto = mapper.toDto(author);
+                return  ResponseEntity.ok(dto);
+                }).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("{id}")
@@ -95,7 +91,7 @@ public class AuthorController {
     public ResponseEntity<Object> update(@PathVariable String id, @RequestBody @Valid AuthorDTO dto){
         try{
             UUID idAuthor = UUID.fromString(id);
-            var author = dto.mapedAuthor();
+            Author author = mapper.toEntity(dto);
             author.setId(idAuthor); //Garante que o ID do autor seja o mesmo do parâmetro da URL
             service.update(author);
             return ResponseEntity.noContent().build();

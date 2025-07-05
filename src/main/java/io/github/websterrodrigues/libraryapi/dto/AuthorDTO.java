@@ -25,12 +25,4 @@ public record AuthorDTO(
         @Size(min = 2, max = 50, message = "Campo não corresponde os padrões de tamanho!")
         String nationality) {
 
-    public Author mapedAuthor(){
-        Author author = new Author();
-        author.setName(this.name);
-        author.setDateOfBirth(this.dateOfBirth);
-        author.setNationality(this.nationality);
-        return author;
-    }
-
 }
