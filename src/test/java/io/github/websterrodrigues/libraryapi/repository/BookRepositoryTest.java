@@ -30,9 +30,9 @@ public class BookRepositoryTest {
         book.setGenre(Genre.FICCAO);
         book.setPublicationDate(LocalDate.of(2002, 1, 1));
 
-        Author author = authorRepository.findById(UUID.fromString("36f2e4c1-86b1-4b75-b859-540d221dbd43")).orElse(null);
+        Author author = authorRepository.findById(UUID.fromString("5fb24c5c-5ac9-483e-a2d1-82ea441eef71")).orElse(null);
         //Estado do autor no banco é Transient
-        authorRepository.save(author);
+        //authorRepository.save(author);
 
         book.setAuthor(author);
 

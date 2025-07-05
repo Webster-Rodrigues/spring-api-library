@@ -33,7 +33,7 @@ public class Book {
 
     @ManyToOne(fetch = FetchType.LAZY) //- dados da entidade relacionada não serão carregados imediatamente
     //(cascade = CascadeType.ALL)//Ações que serão feitas no livro, serão feitas no autor também
-    @JoinColumn(name = "autor_id")
+    @JoinColumn(name = "id_autor")
     private Author author;
 
 

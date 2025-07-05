@@ -1,10 +1,13 @@
 package io.github.websterrodrigues.libraryapi.controller;
 
 import io.github.websterrodrigues.libraryapi.dto.AuthorDTO;
+import io.github.websterrodrigues.libraryapi.dto.ResponseError;
+import io.github.websterrodrigues.libraryapi.exceptions.DuplicateRecordException;
 import io.github.websterrodrigues.libraryapi.model.Author;
 import io.github.websterrodrigues.libraryapi.service.AuthorService;
 import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,14 +27,20 @@ public class AuthorController {
     public AuthorService service;
 
     @PostMapping
-    public ResponseEntity<Void> save(@RequestBody AuthorDTO authorDTO){
-        Author author = authorDTO.mapedAuthor();
-        service.save(author);
+    public ResponseEntity<Object> save(@RequestBody AuthorDTO authorDTO){
+        try {
+            Author author = authorDTO.mapedAuthor();
+            service.save(author);
 
-        //ServletUriComponentsBuilder: Cria uma URI; fromCurrentRequest: Pega os dados da requisição atual; buildAndExpand: Sinaliza qual parâmetro séra colocado no path
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(author.getId()).toUri();
+            //ServletUriComponentsBuilder: Cria uma URI; fromCurrentRequest: Pega os dados da requisição atual; buildAndExpand: Sinaliza qual parâmetro séra colocado no path
+            URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(author.getId()).toUri();
 
-        return ResponseEntity.created(location).build();
+            return ResponseEntity.created(location).build();
+        }
+        catch (DuplicateRecordException ex){
+            var errorMessage = ResponseError.conflictError(ex.getMessage());
+            return ResponseEntity.status(errorMessage.Status()).body(errorMessage);
+        }
 
     }
 
@@ -53,13 +62,17 @@ public class AuthorController {
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Void> delete(@PathVariable String id){
+    public ResponseEntity<Object> delete(@PathVariable String id){
         try{
             service.delete(UUID.fromString(id));
             return ResponseEntity.noContent().build();
         }
-        catch (ObjectNotFoundException e){
-            return ResponseEntity.notFound().build();
+        catch (ObjectNotFoundException ex){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND.value()).body(ex.getMessage());
+        }
+        catch (DataIntegrityViolationException ex){
+            var errorMessage = ResponseError.conflictError("Autor não pode ser excluído, pois possui livros associados.");
+            return ResponseEntity.status(errorMessage.Status()).body(errorMessage);
         }
     }
 
@@ -79,7 +92,7 @@ public class AuthorController {
     }
 
     @PutMapping({"{id}"})
-    public ResponseEntity<Void> update(@PathVariable String id, @RequestBody AuthorDTO dto){
+    public ResponseEntity<Object> update(@PathVariable String id, @RequestBody AuthorDTO dto){
         try{
             UUID idAuthor = UUID.fromString(id);
             var author = dto.mapedAuthor();
@@ -87,10 +100,14 @@ public class AuthorController {
             service.update(author);
             return ResponseEntity.noContent().build();
         }
-        catch (ObjectNotFoundException e){
+        catch (DuplicateRecordException ex){
+            var errorMessage = ResponseError.conflictError(ex.getMessage());
+            return ResponseEntity.status(errorMessage.Status()).body(errorMessage);
+        }
+        catch (ObjectNotFoundException ex){
             return ResponseEntity.notFound().build();
         }
-        catch (IllegalArgumentException e){
+        catch (IllegalArgumentException ex){
             return ResponseEntity.badRequest().build();
         }
 

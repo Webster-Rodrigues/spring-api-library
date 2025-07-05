@@ -1,6 +1,6 @@
 package io.github.websterrodrigues.libraryapi.dto;
 
-public record FieldException(String field, String message) {
+public record FieldError(String field, String message) {
 
 
 }
