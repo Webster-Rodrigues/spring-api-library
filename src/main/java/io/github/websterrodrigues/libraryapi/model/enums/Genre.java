@@ -6,6 +6,6 @@ public enum Genre {
     MISTERIO,
     ROMANCE,
     BIOGRAFIA,
-    CINEMA
+    CIENCIA
 
 }

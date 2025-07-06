@@ -78,12 +78,7 @@ public class AuthorController {
             @RequestParam(value = "nacionalidade", required = false) String nationality){
 
         List<Author> list = service.searchByExample(name, nationality);
-        List<AuthorDTO> listDTO = list.stream().map(author ->
-                new AuthorDTO(
-                author.getId(),
-                author.getName(),
-                author.getDateOfBirth(),
-                author.getNationality())).toList();
+        List<AuthorDTO> listDTO = list.stream().map(mapper::toDto).toList();
         return ResponseEntity.ok(listDTO);
     }
 
