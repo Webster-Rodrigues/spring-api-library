@@ -31,9 +31,9 @@ public class GlobalExceptionHandler {
         return ResponseError.conflictError(exception.getMessage());
     }
 
-    @ExceptionHandler(ObjectNotFoundException.class)
+    @ExceptionHandler(EntityNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public ResponseError handleObjectNotFoundException(ObjectNotFoundException exception){
+    public ResponseError handleEntityNotFoundException(EntityNotFoundException exception){
         return ResponseError.notFoundError(exception.getMessage());
     }
 

@@ -1,5 +1,6 @@
 package io.github.websterrodrigues.libraryapi.service;
 
+import io.github.websterrodrigues.libraryapi.exceptions.EntityNotFoundException;
 import io.github.websterrodrigues.libraryapi.model.Book;
 import io.github.websterrodrigues.libraryapi.repository.BookRepository;
 import org.hibernate.ObjectNotFoundException;
@@ -22,7 +23,7 @@ public class BookService {
 
     public Book findById(UUID id){
         Optional<Book> book = repository.findById(id);
-        return book.orElseThrow(() -> new ObjectNotFoundException("Livro não encontrado: ", id));
+        return book.orElseThrow(() -> new EntityNotFoundException(String.format("Livro não encontrado! ID: %s", id)));
     }
 
 

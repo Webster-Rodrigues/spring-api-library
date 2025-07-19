@@ -1,5 +1,6 @@
 package io.github.websterrodrigues.libraryapi.service;
 
+import io.github.websterrodrigues.libraryapi.exceptions.EntityNotFoundException;
 import io.github.websterrodrigues.libraryapi.model.Author;
 import io.github.websterrodrigues.libraryapi.repository.AuthorRepository;
 import io.github.websterrodrigues.libraryapi.validator.AuthorValidator;
@@ -35,7 +36,7 @@ public class AuthorService {
 
     public Author findById(UUID id) {
         Optional<Author> obj = repository.findById(id);
-        return obj.orElseThrow(()-> new ObjectNotFoundException("Autor não encontrado: ", id));
+        return obj.orElseThrow(()-> new EntityNotFoundException(String.format("Autor não encontrado! ID: %s", id)));
     }
 
     public void delete(UUID id){
