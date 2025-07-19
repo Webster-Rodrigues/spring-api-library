@@ -13,4 +13,9 @@ public record ResponseError(int Status, String message, List<ValidationError> er
     public static ResponseError conflictError(String message){
         return new ResponseError(HttpStatus.CONFLICT.value(), message, List.of());
     }
+
+    public static ResponseError notFoundError(String message){
+        return new ResponseError(HttpStatus.NOT_FOUND.value(), message, List.of());
+    }
+
 }

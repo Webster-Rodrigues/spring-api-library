@@ -33,13 +33,9 @@ public class AuthorService {
         repository.save(author);
     }
 
-    public Optional<Author> getDetails(UUID id){
-        return repository.findById(id);
-    }
-
     public Author findById(UUID id) {
         Optional<Author> obj = repository.findById(id);
-        return obj.orElseThrow(()-> new ObjectNotFoundException("Autor não encontrado ", id));
+        return obj.orElseThrow(()-> new ObjectNotFoundException("Autor não encontrado: ", id));
     }
 
     public void delete(UUID id){

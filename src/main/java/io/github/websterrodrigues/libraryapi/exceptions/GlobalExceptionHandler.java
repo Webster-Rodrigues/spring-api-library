@@ -1,5 +1,7 @@
 package io.github.websterrodrigues.libraryapi.exceptions;
 
+import org.hibernate.ObjectNotFoundException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -21,6 +23,32 @@ public class GlobalExceptionHandler {
         List<ValidationError> listErros =  fieldErrors.stream().map(fe -> new ValidationError(fe.getField(), fe.getDefaultMessage())).toList();
 
         return new ResponseError(HttpStatus.UNPROCESSABLE_ENTITY.value(), "Erro de validação.", listErros);
+    }
 
+    @ExceptionHandler(DuplicateRecordException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public ResponseError handleDuplicateRecordException(DuplicateRecordException exception){
+        return ResponseError.conflictError(exception.getMessage());
+    }
+
+    @ExceptionHandler(ObjectNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ResponseError handleObjectNotFoundException(ObjectNotFoundException exception){
+        return ResponseError.notFoundError(exception.getMessage());
+    }
+
+    @ExceptionHandler
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public ResponseError handleDataIntegrityViolationException(DataIntegrityViolationException exception){
+        return ResponseError.conflictError("Objeto não pode ser excluído, pois possui entidades associadas.");
+    }
+
+
+    @ExceptionHandler(RuntimeException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ResponseError handleException(RuntimeException exception){
+        return new ResponseError(HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                "Ocorreu um erro inesperado. Etre em contato com o suporte.",
+                List.of());
     }
 }

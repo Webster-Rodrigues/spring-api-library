@@ -1,5 +1,6 @@
 package io.github.websterrodrigues.libraryapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -33,7 +34,7 @@ public class Author {
 
 
     @CreatedDate //Toda vez que for persistir ele coloca a data atual automaticamente
-    @Column(name = "data_cadastro")
+    @Column(name = "data_cadastro",  updatable = false)
     private LocalDateTime registrationDate;
 
     @LastModifiedDate
@@ -45,7 +46,7 @@ public class Author {
 
 
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
-    @Transient
+    @JsonIgnore
     private List<Book> books = new ArrayList<>();
 
 
@@ -94,6 +95,30 @@ public class Author {
 
     public List<Book> getBooks() {
         return books;
+    }
+
+    public LocalDateTime getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(LocalDateTime registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+
+    public LocalDateTime getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(LocalDateTime updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    public UUID getUserId() {
+        return userId;
+    }
+
+    public void setUserId(UUID userId) {
+        this.userId = userId;
     }
 
     @Override

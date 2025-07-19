@@ -43,7 +43,7 @@ public class Book {
 
 
     @CreatedDate //Toda vez que for persistir ele coloca a data atual automaticamente
-    @Column(name = "data_cadastro")
+    @Column(name = "data_cadastro", updatable = false)
     private LocalDateTime registrationDate;
 
     @LastModifiedDate
@@ -122,6 +122,30 @@ public class Book {
 
     public void setAuthor(Author author) {
         this.author = author;
+    }
+
+    public LocalDateTime getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(LocalDateTime registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+
+    public LocalDateTime getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(LocalDateTime updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    public UUID getUserId() {
+        return userId;
+    }
+
+    public void setUserId(UUID userId) {
+        this.userId = userId;
     }
 
     @Override
