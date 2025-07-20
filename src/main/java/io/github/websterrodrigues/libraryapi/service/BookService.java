@@ -6,6 +6,9 @@ import io.github.websterrodrigues.libraryapi.model.enums.Genre;
 import io.github.websterrodrigues.libraryapi.repository.BookRepository;
 import io.github.websterrodrigues.libraryapi.validator.BookValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
@@ -45,7 +48,8 @@ public class BookService {
         repository.save(book);
     }
 
-    public List<Book> searchByFilter(String isbn, String title, String authorName, Genre genre, Integer yearPublication) {
+    public Page<Book> searchByFilter(String isbn, String title, String authorName, Genre genre,
+                                     Integer yearPublication, Integer page, Integer size) {
 
         //select * from book where 0=0
         Specification<Book> specs = Specification.where((root, query, cb) -> cb.conjunction());
@@ -66,7 +70,9 @@ public class BookService {
             specs = specs.and(yearPublicationEquals(yearPublication));
         }
 
-        return repository.findAll(specs); //Encontra todos os livros que atendem as especificações criadas
+        Pageable pageResquest = PageRequest.of(page, size);
+
+        return repository.findAll(specs, pageResquest); //Encontra todos os livros que atendem as especificações criadas
     }
 
 }

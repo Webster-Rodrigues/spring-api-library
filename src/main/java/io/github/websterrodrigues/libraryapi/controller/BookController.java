@@ -8,6 +8,7 @@ import io.github.websterrodrigues.libraryapi.model.enums.Genre;
 import io.github.websterrodrigues.libraryapi.service.BookService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,17 +50,18 @@ public class BookController implements GenericController {
 
     @GetMapping
     //required = false indica que o parâmetro é opcional
-    public ResponseEntity<List<SearchBookDTO>> searchByFilter(
+    public ResponseEntity<Page<SearchBookDTO>> searchByFilter(
         @RequestParam (value = "isbn", required = false) String isbn,
         @RequestParam (value = "title", required = false) String title,
         @RequestParam (value = "author-name", required = false) String authorName,
         @RequestParam (value = "genre", required = false) Genre genre,
-        @RequestParam (value = "year-publication", required = false) Integer yearDate) {
+        @RequestParam (value = "year-publication", required = false) Integer yearDate,
+        @RequestParam (value = "page", defaultValue = "0") Integer page,
+        @RequestParam (value = "size", defaultValue = "10") Integer size) {
 
-        List<Book> list = service.searchByFilter(isbn, title, authorName, genre, yearDate);
-        List<SearchBookDTO> result = list.stream().map(mapper::toDto).toList();
+        Page<SearchBookDTO> list = service.searchByFilter(isbn, title, authorName, genre, yearDate, page, size).map(mapper::toDto);
 
-        return ResponseEntity.ok(result);
+        return ResponseEntity.ok(list);
     }
 
     @PutMapping("{id}")
