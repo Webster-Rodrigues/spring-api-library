@@ -5,6 +5,7 @@ import io.github.websterrodrigues.libraryapi.model.Book;
 import io.github.websterrodrigues.libraryapi.model.enums.Genre;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -16,7 +17,7 @@ import java.util.UUID;
 /**
  * @see BookRepositoryTest
  */
-public interface BookRepository extends JpaRepository<Book, UUID> {
+public interface BookRepository extends JpaRepository<Book, UUID>, JpaSpecificationExecutor<Book> {
 
     // Querry Methods
     List<Book> findByAuthor(Author author);

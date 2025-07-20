@@ -46,7 +46,6 @@ public class AuthorController implements GenericController {
 
         service.delete(UUID.fromString(id));
         return ResponseEntity.noContent().build();
-
     }
 
     @GetMapping

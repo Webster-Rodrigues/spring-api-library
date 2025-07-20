@@ -4,7 +4,6 @@ import io.github.websterrodrigues.libraryapi.exceptions.EntityNotFoundException;
 import io.github.websterrodrigues.libraryapi.model.Author;
 import io.github.websterrodrigues.libraryapi.repository.AuthorRepository;
 import io.github.websterrodrigues.libraryapi.validator.AuthorValidator;
-import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;

@@ -4,6 +4,7 @@ import io.github.websterrodrigues.libraryapi.dto.RecordBookDTO;
 import io.github.websterrodrigues.libraryapi.dto.SearchBookDTO;
 import io.github.websterrodrigues.libraryapi.dto.mappers.BookMapper;
 import io.github.websterrodrigues.libraryapi.model.Book;
+import io.github.websterrodrigues.libraryapi.model.enums.Genre;
 import io.github.websterrodrigues.libraryapi.service.BookService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -24,7 +26,7 @@ public class BookController implements GenericController {
     private BookMapper mapper;
 
     @PostMapping
-    public ResponseEntity<Void> save(@RequestBody @Valid RecordBookDTO dto) {
+    public ResponseEntity<Void> insert(@RequestBody @Valid RecordBookDTO dto) {
         Book book = mapper.toEntity(dto);
         service.save(book);
         URI url = generateHeaderLocation(book.getId());
@@ -39,8 +41,42 @@ public class BookController implements GenericController {
         return ResponseEntity.ok(book);
     }
 
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> delete(@PathVariable String id) {
+        service.delete(UUID.fromString(id));
+        return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping
+    //required = false indica que o parâmetro é opcional
+    public ResponseEntity<List<SearchBookDTO>> searchByFilter(
+        @RequestParam (value = "isbn", required = false) String isbn,
+        @RequestParam (value = "title", required = false) String title,
+        @RequestParam (value = "author-name", required = false) String authorName,
+        @RequestParam (value = "genre", required = false) Genre genre,
+        @RequestParam (value = "year-publication", required = false) Integer yearDate) {
+
+        List<Book> list = service.searchByFilter(isbn, title, authorName, genre, yearDate);
+        List<SearchBookDTO> result = list.stream().map(mapper::toDto).toList();
+
+        return ResponseEntity.ok(result);
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<Void> update(@PathVariable String id, @RequestBody @Valid RecordBookDTO dto){
+        try {
+            UUID idBook = UUID.fromString(id);
+            Book book = mapper.toEntity(dto);
+            book.setId(idBook); //Garante que o ID do autor seja o mesmo do parâmetro da URL
+            service.update(book);
+            return ResponseEntity.noContent().build();
+        } catch (IllegalArgumentException ex) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
 
 //    @GetMapping
 //    @PostMapping
-//    @DeleteMapping
+
 }
