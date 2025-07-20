@@ -12,6 +12,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -22,6 +23,9 @@ public interface BookRepository extends JpaRepository<Book, UUID>, JpaSpecificat
     // Querry Methods
     List<Book> findByAuthor(Author author);
     List<Book> findByTitle(String title);
+
+
+    Optional<Book> findByIsbn(String isbn);
 
     //JPQL Referencia as entidades e as propriedades. Não referencia as tabelas e colunas
     @Query("SELECT b FROM Book as b ORDER BY b.title")

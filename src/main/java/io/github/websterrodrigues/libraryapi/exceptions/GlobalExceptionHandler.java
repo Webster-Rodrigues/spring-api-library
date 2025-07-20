@@ -37,10 +37,12 @@ public class GlobalExceptionHandler {
         return ResponseError.notFoundError(exception.getMessage());
     }
 
+
     @ExceptionHandler
-    @ResponseStatus(HttpStatus.CONFLICT)
-    public ResponseError handleDataIntegrityViolationException(DataIntegrityViolationException exception){
-        return ResponseError.conflictError("Objeto não pode ser excluído, pois possui entidades associadas.");
+    @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
+    public ResponseError handleInvalidFieldException(InvalidFieldException exception){
+        return new ResponseError(HttpStatus.UNPROCESSABLE_ENTITY.value(), "Erro de validação.", List.of(new ValidationError(exception.getField(), exception.getMessage())));
+
     }
 
 

@@ -4,6 +4,7 @@ import io.github.websterrodrigues.libraryapi.exceptions.EntityNotFoundException;
 import io.github.websterrodrigues.libraryapi.model.Book;
 import io.github.websterrodrigues.libraryapi.model.enums.Genre;
 import io.github.websterrodrigues.libraryapi.repository.BookRepository;
+import io.github.websterrodrigues.libraryapi.validator.BookValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
@@ -19,8 +20,12 @@ public class BookService {
     @Autowired
     private BookRepository repository;
 
+    @Autowired
+    private BookValidator validator;
+
 
     public Book save(Book book) {
+        validator.validate(book);
         return repository.save(book);
     }
 
@@ -36,6 +41,7 @@ public class BookService {
 
     public void update(Book book) {
         repository.findById(book.getId());
+        validator.validate(book);
         repository.save(book);
     }
 
