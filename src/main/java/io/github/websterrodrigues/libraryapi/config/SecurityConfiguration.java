@@ -1,17 +1,17 @@
 package io.github.websterrodrigues.libraryapi.config;
 
+import io.github.websterrodrigues.libraryapi.security.CustomUserDetailsService;
+import io.github.websterrodrigues.libraryapi.service.SystemUserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -26,10 +26,18 @@ public class SecurityConfiguration {
                 .csrf(AbstractHttpConfigurer :: disable)
                 .formLogin(Customizer.withDefaults())
                 .httpBasic(Customizer.withDefaults())
-                .authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated())
+                .authorizeHttpRequests(authorize -> {
+                    authorize.requestMatchers(HttpMethod.POST, "/users/**").permitAll(); //Permite acesso a todos os endpoints de usuários, sem autenticação
+                    authorize.requestMatchers(HttpMethod.DELETE, "/users/**").hasRole("ADMIN");
+                    authorize.requestMatchers("/authors/**").hasRole("ADMIN"); //Somente usuários com a role ADMIN podem acessar os endpoints de autores
+                    authorize.requestMatchers("/books/**").hasAnyRole("USER", "ADMIN");//Usuários com a role USER ou ADMIN podem acessar os endpoints de livros
+
+                    authorize.anyRequest().authenticated();// Exige autenticação para todas as requisições
+                })
                 .build();
     };
 
+    // PasswordEncoder é responsável por criptografar as senhas dos usuários
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder(10); //Uma vez que a senha foi criptografada com BCrypt, não é possível descriptografá-la.
@@ -37,25 +45,33 @@ public class SecurityConfiguration {
     }
 
 
-    // Criando UserDetailsService em memória com dois usuários: user e admin
     @Bean
-    public UserDetailsService userDetailsService(PasswordEncoder encoder) {
-
-        UserDetails user1 = User.builder()
-                .username("user")
-                .password(encoder.encode("123"))
-                .roles("USER")
-                .build();
-
-        UserDetails user2 = User.builder()
-                .username("admin")
-                .password(encoder.encode("321"))
-                .roles("ADMIN")
-                .build();
-
-        return new InMemoryUserDetailsManager(user1, user2);
-
+    public UserDetailsService userDetailsService(SystemUserService systemUserService) {
+        return new CustomUserDetailsService(systemUserService);
     }
-
+//
+//    @Bean
+//    public UserDetailsService userDetailsService(PasswordEncoder encoder) {
+//
+//        UserDetails user1 = User.builder()
+//                .username("user")
+//                .password(encoder.encode("123"))
+//                .roles("USER")
+//                .build();
+//
+//        UserDetails user2 = User.builder()
+//                .username("admin")
+//                .password(encoder.encode("321"))
+//                .roles("ADMIN")
+//                .build();
+//
+//        return new InMemoryUserDetailsManager(user1, user2);
+//
+//    }
 
 }
+//Exemplos de config de roles
+//authorize.requestMatchers(HttpMethod.DELETE, "/authors/**").hasRole("ADMIN");
+//authorize.requestMatchers(HttpMethod.POST, "/authors/**").hasRole("ADMIN");
+//authorize.requestMatchers(HttpMethod.PUT, "/authors/**").hasRole("ADMIN");
+//authorize.requestMatchers(HttpMethod.GET, "/authors/**").hasAnyRole("USER", "ADMIN");

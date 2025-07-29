@@ -12,7 +12,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import static io.github.websterrodrigues.libraryapi.repository.specs.BookSpecs.*;
@@ -33,8 +32,8 @@ public class BookService {
     }
 
     public Book findById(UUID id){
-        Optional<Book> book = repository.findById(id);
-        return book.orElseThrow(() -> new EntityNotFoundException(String.format("Livro não encontrado! ID: %s", id)));
+        Optional<Book> obj = repository.findById(id);
+        return obj.orElseThrow(() -> new EntityNotFoundException(String.format("Livro não encontrado! ID: %s", id)));
     }
 
     public void delete(UUID id){
