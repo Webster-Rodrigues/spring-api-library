@@ -50,8 +50,9 @@ public class Book {
     @Column(name = "data_atualizacao")
     private LocalDateTime updateDate;
 
-    @Column(name = "id_usuario")
-    private UUID userId;
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    private SystemUser systemUser;
 
 
 
@@ -140,12 +141,12 @@ public class Book {
         this.updateDate = updateDate;
     }
 
-    public UUID getUserId() {
-        return userId;
+    public SystemUser getSystemUser() {
+        return systemUser;
     }
 
-    public void setUserId(UUID userId) {
-        this.userId = userId;
+    public void setSystemUser(SystemUser systemUser) {
+        this.systemUser = systemUser;
     }
 
     @Override

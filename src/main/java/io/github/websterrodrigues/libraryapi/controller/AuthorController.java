@@ -7,11 +7,11 @@ import io.github.websterrodrigues.libraryapi.service.AuthorService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -25,6 +25,7 @@ public class AuthorController implements GenericController {
     private AuthorMapper mapper;
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')") // Permite que apenas usuários com a role ADMIN acessem este endpoint
     public ResponseEntity<Void> save(@RequestBody @Valid AuthorDTO dto) {
 
         Author author = mapper.toEntity(dto);
@@ -34,6 +35,7 @@ public class AuthorController implements GenericController {
     }
 
     @GetMapping("{id}")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public ResponseEntity<AuthorDTO> getDetails(@PathVariable String id) {
         var idAuthor = UUID.fromString(id);
 
@@ -42,6 +44,7 @@ public class AuthorController implements GenericController {
     }
 
     @DeleteMapping("{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> delete(@PathVariable String id) {
 
         service.delete(UUID.fromString(id));
@@ -49,6 +52,7 @@ public class AuthorController implements GenericController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public ResponseEntity<List<AuthorDTO>> findByFilter(
             @RequestParam(value = "nome", required = false) String name,
             @RequestParam(value = "nacionalidade", required = false) String nationality) {
@@ -59,6 +63,7 @@ public class AuthorController implements GenericController {
     }
 
     @PutMapping({"{id}"})
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> update(@PathVariable String id, @RequestBody @Valid AuthorDTO dto) {
         try {
             UUID idAuthor = UUID.fromString(id);
@@ -66,7 +71,8 @@ public class AuthorController implements GenericController {
             author.setId(idAuthor); //Garante que o ID do autor seja o mesmo do parâmetro da URL
             service.update(author);
             return ResponseEntity.noContent().build();
-        } catch (IllegalArgumentException ex) {
+        }
+        catch (IllegalArgumentException ex) {
             return ResponseEntity.badRequest().build();
         }
 

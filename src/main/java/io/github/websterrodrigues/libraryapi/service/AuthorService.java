@@ -2,6 +2,7 @@ package io.github.websterrodrigues.libraryapi.service;
 
 import io.github.websterrodrigues.libraryapi.exceptions.EntityNotFoundException;
 import io.github.websterrodrigues.libraryapi.model.Author;
+import io.github.websterrodrigues.libraryapi.model.SystemUser;
 import io.github.websterrodrigues.libraryapi.repository.AuthorRepository;
 import io.github.websterrodrigues.libraryapi.validator.AuthorValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,13 @@ public class AuthorService {
     @Autowired
     private AuthorValidator validator;
 
+    @Autowired
+    private SecurityService securityService;
+
     public Author save(Author author){
         validator.validate(author);
+        SystemUser user = securityService.getAuthenticatedUser();
+        author.setSystemUser(user);
         return repository.save(author);
     }
 

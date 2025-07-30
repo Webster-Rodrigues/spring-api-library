@@ -1,6 +1,7 @@
 package io.github.websterrodrigues.libraryapi.service;
 
 import io.github.websterrodrigues.libraryapi.exceptions.EntityNotFoundException;
+import io.github.websterrodrigues.libraryapi.model.Book;
 import io.github.websterrodrigues.libraryapi.model.SystemUser;
 import io.github.websterrodrigues.libraryapi.repository.SystemUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,9 @@ public class SystemUserService {
         repository.delete(systemUser);
     }
 
-    public Optional<SystemUser> findByLogin(String login){
-        return repository.findByLogin(login);
+    public SystemUser findByLogin(String login){
+        Optional<SystemUser> obj = repository.findByLogin(login);
+        return obj.orElseThrow(() -> new EntityNotFoundException(String.format("Usuário não encontrado! Login: %s", login)));
     }
+
 }

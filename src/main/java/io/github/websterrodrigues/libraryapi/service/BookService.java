@@ -2,6 +2,7 @@ package io.github.websterrodrigues.libraryapi.service;
 
 import io.github.websterrodrigues.libraryapi.exceptions.EntityNotFoundException;
 import io.github.websterrodrigues.libraryapi.model.Book;
+import io.github.websterrodrigues.libraryapi.model.SystemUser;
 import io.github.websterrodrigues.libraryapi.model.enums.Genre;
 import io.github.websterrodrigues.libraryapi.repository.BookRepository;
 import io.github.websterrodrigues.libraryapi.validator.BookValidator;
@@ -25,9 +26,14 @@ public class BookService {
     @Autowired
     private BookValidator validator;
 
+    @Autowired
+    private SecurityService securityService;
+
 
     public Book save(Book book) {
         validator.validate(book);
+        SystemUser user = securityService.getAuthenticatedUser();
+        book.setSystemUser(user);
         return repository.save(book);
     }
 

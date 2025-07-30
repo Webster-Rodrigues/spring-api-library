@@ -10,14 +10,15 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
-import java.util.List;
 import java.util.UUID;
 
 @RestController
 @RequestMapping("/books")
+@PreAuthorize("hasAnyRole('USER', 'ADMIN')") // Permite que apenas usuários com as roles USER ou ADMIN acessem os endpoints deste controller
 public class BookController implements GenericController {
 
     @Autowired
