@@ -2,7 +2,7 @@
 netstat -aof | findstr 5432
 
 #Crear a network para conectar o postgres e pgAdmin
-docker create network library-network
+docker network create library-network
 
 #Rodar container Postgre versão 16.6
 docker run --name librarydb -p 5432:5432 -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=library --network library-network postgres:16.6

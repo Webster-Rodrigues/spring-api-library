@@ -34,6 +34,7 @@ public class SecurityConfiguration {
 
                     authorize.anyRequest().authenticated();// Exige autenticação para todas as requisições
                 })
+                .oauth2Login(Customizer.withDefaults())
                 .build();
     };
 
@@ -45,7 +46,7 @@ public class SecurityConfiguration {
     }
 
 
-    @Bean
+    //@Bean
     public UserDetailsService userDetailsService(SystemUserService systemUserService) {
         return new CustomUserDetailsService(systemUserService);
     }

@@ -5,6 +5,7 @@ import io.github.websterrodrigues.libraryapi.model.Book;
 import io.github.websterrodrigues.libraryapi.model.SystemUser;
 import io.github.websterrodrigues.libraryapi.model.enums.Genre;
 import io.github.websterrodrigues.libraryapi.repository.BookRepository;
+import io.github.websterrodrigues.libraryapi.security.SecurityService;
 import io.github.websterrodrigues.libraryapi.validator.BookValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

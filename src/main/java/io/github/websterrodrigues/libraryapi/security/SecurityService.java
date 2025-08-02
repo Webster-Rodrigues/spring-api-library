@@ -1,6 +1,7 @@
-package io.github.websterrodrigues.libraryapi.service;
+package io.github.websterrodrigues.libraryapi.security;
 
 import io.github.websterrodrigues.libraryapi.model.SystemUser;
+import io.github.websterrodrigues.libraryapi.service.SystemUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
