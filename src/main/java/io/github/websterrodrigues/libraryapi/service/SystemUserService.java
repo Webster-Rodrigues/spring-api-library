@@ -41,4 +41,9 @@ public class SystemUserService {
         return obj.orElseThrow(() -> new EntityNotFoundException(String.format("Usuário não encontrado! Login: %s", login)));
     }
 
+    public SystemUser findByEmail(String email){
+        Optional<SystemUser> obj = repository.findByEmail(email);
+        return obj.orElseThrow(() -> new EntityNotFoundException(String.format("Usuário não encontrado! Email: %s", email)));
+    }
+
 }

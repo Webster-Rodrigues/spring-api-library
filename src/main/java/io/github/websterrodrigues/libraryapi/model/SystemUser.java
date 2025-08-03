@@ -22,6 +22,9 @@ public class SystemUser {
     @Column(name = "senha")
     private String password;
 
+    @Column(name = "email")
+    private String email;
+
     @Type(ListArrayType.class)
     @Column(name = "roles", columnDefinition = "varchar[]")
     private List<String> roles = new ArrayList<>();
@@ -61,6 +64,14 @@ public class SystemUser {
 
     public List<String> getRoles() {
         return roles;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 

@@ -25,7 +25,7 @@ public class CustomAuthentication implements Authentication {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.systemUser.getRoles().stream().map(role -> new SimpleGrantedAuthority(role)).collect(Collectors.toList());
+        return this.systemUser.getRoles().stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
         //SimpleGrantedAuthority -> Implementação simples de GrantedAuthority, que é um interface que retorna as authorities
     }
 

@@ -5,7 +5,6 @@ import io.github.websterrodrigues.libraryapi.service.SystemUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -18,8 +17,9 @@ public class SecurityService {
     public SystemUser getAuthenticatedUser(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        UserDetails user = (UserDetails) authentication.getPrincipal();
-        String login = user.getUsername();
-        return service.findByLogin(login);
+        if(authentication instanceof  CustomAuthentication customAuthentication){
+            return customAuthentication.getSystemUser();
+        }
+        return null;
     }
 }
