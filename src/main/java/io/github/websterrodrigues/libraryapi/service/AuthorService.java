@@ -36,6 +36,8 @@ public class AuthorService {
 
     public void update(Author author){
         repository.findById(author.getId());
+        SystemUser user = securityService.getAuthenticatedUser();
+        author.setSystemUser(user);
         validator.validate(author);
         repository.save(author);
     }
