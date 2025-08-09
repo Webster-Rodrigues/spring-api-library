@@ -1,8 +1,6 @@
 package io.github.websterrodrigues.libraryapi.config;
 
-import io.github.websterrodrigues.libraryapi.security.CustomUserDetailsService;
 import io.github.websterrodrigues.libraryapi.security.LoginSocialSucessHandler;
-import io.github.websterrodrigues.libraryapi.service.SystemUserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -12,9 +10,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.core.GrantedAuthorityDefaults;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -42,23 +37,10 @@ public class SecurityConfiguration {
                 .build();
     };
 
-    // PasswordEncoder é responsável por criptografar as senhas dos usuários
-    @Bean
-    public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder(10); //Uma vez que a senha foi criptografada com BCrypt, não é possível descriptografá-la.
-        //strength 10 diz quantas vezes o algoritmo vai rodar para gerar o hash da senha.
-    }
-
 
     @Bean
     public GrantedAuthorityDefaults grantedAuthorityDefaults(){
         return new GrantedAuthorityDefaults("");
-    }
-
-
-    //@Bean
-    public UserDetailsService userDetailsService(SystemUserService systemUserService) {
-        return new CustomUserDetailsService(systemUserService);
     }
 
 }

@@ -1,6 +1,5 @@
 package io.github.websterrodrigues.libraryapi.dto;
 
-import io.github.websterrodrigues.libraryapi.model.Author;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
