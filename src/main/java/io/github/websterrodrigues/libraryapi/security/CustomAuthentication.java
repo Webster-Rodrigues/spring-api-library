@@ -59,4 +59,8 @@ public class CustomAuthentication implements Authentication {
     public String getName() {
         return systemUser.getLogin();
     }
+
+    public String getEmail() {
+        return systemUser.getEmail();
+    }
 }

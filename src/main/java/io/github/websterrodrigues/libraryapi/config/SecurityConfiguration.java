@@ -1,5 +1,6 @@
 package io.github.websterrodrigues.libraryapi.config;
 
+import io.github.websterrodrigues.libraryapi.security.JwtCustomAuthenticationFilter;
 import io.github.websterrodrigues.libraryapi.security.LoginSocialSucessHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,6 +13,7 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.core.GrantedAuthorityDefaults;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
+import org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -20,7 +22,9 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfiguration {
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http, LoginSocialSucessHandler sucessHandler) throws Exception{
+    public SecurityFilterChain securityFilterChain(HttpSecurity http,
+                                                   LoginSocialSucessHandler sucessHandler,
+                                                   JwtCustomAuthenticationFilter jwtCustomAuthenticationFilter) throws Exception{
         return http
                 // Desabilita a proteção CSRF. O spring habilita a proteção CSRF para métodos HTTP que alteram estado
                 // (POST, PUT, DELETE, PATCH). Ele faz isso exigindo um token CSRF em cada requisição que modifica dados
@@ -37,6 +41,7 @@ public class SecurityConfiguration {
                     oauth2.successHandler(sucessHandler);
                 })
                 .oauth2ResourceServer(oauth2Rs -> oauth2Rs.jwt(Customizer.withDefaults()))//Habilita o Resource Server para validar tokens JWT
+                .addFilterAfter(jwtCustomAuthenticationFilter, BearerTokenAuthenticationFilter.class)
                 .build();
     };
 

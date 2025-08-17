@@ -5,6 +5,7 @@ import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
+import io.github.websterrodrigues.libraryapi.security.CustomAuthentication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -12,14 +13,19 @@ import org.springframework.http.MediaType;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.server.authorization.OAuth2TokenType;
 import org.springframework.security.oauth2.server.authorization.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration;
 import org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.OAuth2AuthorizationServerConfigurer;
+import org.springframework.security.oauth2.server.authorization.settings.AuthorizationServerSettings;
 import org.springframework.security.oauth2.server.authorization.settings.ClientSettings;
 import org.springframework.security.oauth2.server.authorization.settings.OAuth2TokenFormat;
 import org.springframework.security.oauth2.server.authorization.settings.TokenSettings;
+import org.springframework.security.oauth2.server.authorization.token.JwtEncodingContext;
+import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenCustomizer;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 import org.springframework.security.web.util.matcher.MediaTypeRequestMatcher;
@@ -29,7 +35,7 @@ import java.security.KeyPairGenerator;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.time.Duration;
-import java.util.UUID;
+import java.util.*;
 
 @Configuration
 @EnableWebSecurity
@@ -41,15 +47,20 @@ public class AuthorizationServerConfiguration {
     public SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http)
             throws Exception {
 
-        var serverConfigurer = OAuth2AuthorizationServerConfigurer.authorizationServer();
+        OAuth2AuthorizationServerConfigurer serverConfigurer = OAuth2AuthorizationServerConfigurer.authorizationServer();
 
+        //Aplica o filter chain nas requisições que batem nesses endpoints especificados
         http.securityMatcher(serverConfigurer.getEndpointsMatcher())
+
+                //Independente se é client ou usuário, ambos precisam estar autenticados (anyRequest)
                 .authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated())
-                .with(
-                        serverConfigurer,
-                        authorizationServer -> authorizationServer.oidc(Customizer.withDefaults())
-                )
+
+                //Adiciona OIDC. Emite ID Tokens e UserInfo Endpoint
+                .with(serverConfigurer, authorizationServer -> authorizationServer.oidc(Customizer.withDefaults()))
+
+                //Faz o Authorization Server funcionar como Resource Server, aceitando tokens JWTs. -> Protege os endpoints de autenticação e autorização
                 .oauth2ResourceServer(resource -> resource.jwt(Customizer.withDefaults()))
+
                 .exceptionHandling(exceptions -> exceptions.defaultAuthenticationEntryPointFor(
                         new LoginUrlAuthenticationEntryPoint("/login"),
                         new MediaTypeRequestMatcher(MediaType.TEXT_HTML)
@@ -58,32 +69,13 @@ public class AuthorizationServerConfiguration {
         return http.build();
     }
 
-//    @Bean APRENDERRRRRR
-//    @Order(1)
-//    public SecurityFilterChain authServerSecurityFilterChain(HttpSecurity http) throws Exception {
-//
-//        //Cria o configurer do Authorization Server. Faz a aplicacão se comportar como um Authorization Server
-//        OAuth2AuthorizationServerConfigurer authorizationServerConfigurer = OAuth2AuthorizationServerConfigurer.authorizationServer();
-//
-//        //Tratar apenas os endpoints do Authorization Server
-//        http.securityMatcher(authorizationServerConfigurer.getEndpointsMatcher())
-//                .with(authorizationServerConfigurer, Customizer.withDefaults()); //Aplica o configurer ao HttpSecurity
-//
-//        authorizationServerConfigurer.oidc(Customizer.withDefaults());
-//
-//        http.oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()));
-//        http.formLogin(Customizer.withDefaults());
-//
-//        return http.build();
-//    }
-
-
     //Responsável por definir as configurações do servidor de autorização
     @Bean
     public TokenSettings tokenSettings(){
         return TokenSettings.builder()
                 .accessTokenFormat(OAuth2TokenFormat.SELF_CONTAINED)
                 .accessTokenTimeToLive(Duration.ofMinutes(60))
+                .refreshTokenTimeToLive(Duration.ofMinutes(90))
                 .build();
     }
 
@@ -125,5 +117,25 @@ public class AuthorizationServerConfiguration {
     @Bean
     public JwtDecoder jwtDecoder(JWKSource<SecurityContext> jwkSource) {
         return OAuth2AuthorizationServerConfiguration.jwtDecoder(jwkSource);
+    }
+
+    @Bean
+    public OAuth2TokenCustomizer<JwtEncodingContext> tokenCustomizer(){
+        return context -> {
+
+            if(context.getPrincipal() instanceof CustomAuthentication customAuthentication){
+                OAuth2TokenType tokenType = context.getTokenType();
+
+                if(OAuth2TokenType.ACCESS_TOKEN.equals(tokenType)){
+
+                    Collection<GrantedAuthority> authorities = new ArrayList<>(customAuthentication.getAuthorities());
+                    List<String> authorityList = authorities.stream().map(GrantedAuthority::getAuthority).toList();
+
+                    context.getClaims()
+                            .claim("authorities", authorityList)
+                            .claim("email", customAuthentication.getEmail());
+                }
+            }
+        };
     }
 }
