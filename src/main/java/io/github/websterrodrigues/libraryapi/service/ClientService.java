@@ -25,7 +25,7 @@ public class ClientService {
     public Client save(Client client){
          String passwordEncoder = encoder.encode(client.getClientSecret());
          client.setClientSecret(passwordEncoder);
-         validator.validade(client);
+         validator.validate(client);
         return repository.save(client);
     }
 

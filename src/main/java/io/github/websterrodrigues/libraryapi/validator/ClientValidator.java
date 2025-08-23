@@ -9,12 +9,13 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 @Component
-public class ClientValidator {
+public class ClientValidator implements ValidateEntity<Client>{
 
     @Autowired
     private ClientRepository repository;
 
-    public void validade(Client client){
+    @Override
+    public void validate(Client client){
         if(isDuplicateClient(client)){
             throw new DuplicateRecordException("Cliente já cadastrado!");
         }

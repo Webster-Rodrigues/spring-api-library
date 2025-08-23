@@ -49,6 +49,7 @@ public class AuthorService {
 
     public void delete(UUID id){
         Author author = findById(id);
+        validator.validateRemove(author);
         repository.delete(author);
     }
 

@@ -32,6 +32,12 @@ public class GlobalExceptionHandler {
         return ResponseError.conflictError(exception.getMessage());
     }
 
+    @ExceptionHandler(InvalidOperationException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public ResponseError handleInvalidOperationException(InvalidOperationException exception){
+        return ResponseError.conflictError(exception.getMessage());
+    }
+
     @ExceptionHandler(EntityNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseError handleEntityNotFoundException(EntityNotFoundException exception){

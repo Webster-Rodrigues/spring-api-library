@@ -2,6 +2,7 @@ package io.github.websterrodrigues.libraryapi.validator;
 
 import io.github.websterrodrigues.libraryapi.exceptions.DuplicateRecordException;
 import io.github.websterrodrigues.libraryapi.exceptions.InvalidFieldException;
+import io.github.websterrodrigues.libraryapi.model.Author;
 import io.github.websterrodrigues.libraryapi.model.Book;
 import io.github.websterrodrigues.libraryapi.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +12,14 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 @Component
-public class BookValidator {
+public class BookValidator implements ValidateEntity<Book> {
 
     private static final int YEAR_MANDATORY_PRICE = 2020;
 
     @Autowired
     BookRepository repository;
 
+    @Override
     public void validate(Book book){
         if(isDuplicateBook(book)){
             throw new DuplicateRecordException("ISBN já cadastrado!");
