@@ -38,6 +38,12 @@ public class GlobalExceptionHandler {
         return ResponseError.conflictError(exception.getMessage());
     }
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseError handleIllegalArgumentException(IllegalArgumentException exception){
+        return ResponseError.responseError(exception.getMessage());
+    }
+
     @ExceptionHandler(EntityNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseError handleEntityNotFoundException(EntityNotFoundException exception){

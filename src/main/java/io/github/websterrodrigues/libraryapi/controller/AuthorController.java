@@ -102,17 +102,11 @@ public class AuthorController implements GenericController {
     @PutMapping({"{id}"})
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> update(@PathVariable String id, @RequestBody @Valid AuthorDTO dto) {
-        try {
-            UUID idAuthor = UUID.fromString(id);
-            Author author = mapper.toEntity(dto);
-            author.setId(idAuthor); //Garante que o ID do autor seja o mesmo do parâmetro da URL
-            service.update(author);
-            return ResponseEntity.noContent().build();
-        }
-        catch (IllegalArgumentException ex) {
-            return ResponseEntity.badRequest().build();
-        }
-
+        UUID idAuthor = UUID.fromString(id);
+        Author author = mapper.toEntity(dto);
+        author.setId(idAuthor); //Garante que o ID do autor seja o mesmo do parâmetro da URL
+        service.update(author);
+        return ResponseEntity.noContent().build();
     }
 }
 

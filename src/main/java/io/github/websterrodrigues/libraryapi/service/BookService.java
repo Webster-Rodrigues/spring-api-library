@@ -49,7 +49,7 @@ public class BookService {
     }
 
     public void update(Book book) {
-        repository.findById(book.getId());
+        findById(book.getId());
         SystemUser user = securityService.getAuthenticatedUser();
         book.setSystemUser(user);
         validator.validate(book);
