@@ -4,6 +4,10 @@ import io.github.websterrodrigues.libraryapi.dto.ClientDTO;
 import io.github.websterrodrigues.libraryapi.dto.mappers.ClientMapper;
 import io.github.websterrodrigues.libraryapi.model.Client;
 import io.github.websterrodrigues.libraryapi.service.ClientService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,7 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("clients")
-public class ClientController implements GenericController {
+@Tag(name = "Clients")
+public class ClientController{
 
     @Autowired
     private ClientService service;
@@ -24,6 +29,12 @@ public class ClientController implements GenericController {
     @Autowired
     private ClientMapper mapper;
 
+    @Operation(summary = "Salvar", description = "Cadastrar novo client.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "201", description = "Client cadastrado."),
+            @ApiResponse(responseCode = "422", description = "Erro de validação."),
+            @ApiResponse(responseCode = "409", description = "Client já cadastrado.")
+    })
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> save(@RequestBody @Valid ClientDTO dto){
@@ -31,7 +42,5 @@ public class ClientController implements GenericController {
         service.save(client);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
-
-
 
 }

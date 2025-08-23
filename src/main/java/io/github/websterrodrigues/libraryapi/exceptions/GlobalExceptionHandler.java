@@ -62,7 +62,6 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public ResponseError handleAccessDeniedException(AccessDeniedException exception){
         return new ResponseError(HttpStatus.FORBIDDEN.value(), "Acesso negado. Você não possui permissão para acessar este recurso.", List.of());
-
     }
 
     @ExceptionHandler(RuntimeException.class)
