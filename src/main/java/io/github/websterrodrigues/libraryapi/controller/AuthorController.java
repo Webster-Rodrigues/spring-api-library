@@ -51,6 +51,7 @@ public class AuthorController implements GenericController {
     @ApiResponses({
             @ApiResponse(responseCode = "201", description = "Autor encontrado."),
             @ApiResponse(responseCode = "404", description = "Autor não encontrado."),
+            @ApiResponse(responseCode = "400", description = "Parâmetro inválido.")
     })
     @GetMapping("{id}")
     @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
@@ -66,7 +67,8 @@ public class AuthorController implements GenericController {
     @ApiResponses({
             @ApiResponse(responseCode = "204", description = "Autor deletado."),
             @ApiResponse(responseCode = "409", description = "Autor possui livros associados."),
-            @ApiResponse(responseCode = "404", description = "Autor não encontrado.")
+            @ApiResponse(responseCode = "404", description = "Autor não encontrado."),
+            @ApiResponse(responseCode = "400", description = "Parâmetro inválido.")
     })
     @DeleteMapping("{id}")
     @PreAuthorize("hasRole('ADMIN')")
@@ -97,7 +99,8 @@ public class AuthorController implements GenericController {
     @ApiResponses({
             @ApiResponse(responseCode = "204", description = "Autor atualizado."),
             @ApiResponse(responseCode = "409", description = "Autor já cadastrado."),
-            @ApiResponse(responseCode = "404", description = "Autor não encontrado.")
+            @ApiResponse(responseCode = "404", description = "Autor não encontrado."),
+            @ApiResponse(responseCode = "400", description = "Parâmetro inválido.")
     })
     @PutMapping({"{id}"})
     @PreAuthorize("hasRole('ADMIN')")

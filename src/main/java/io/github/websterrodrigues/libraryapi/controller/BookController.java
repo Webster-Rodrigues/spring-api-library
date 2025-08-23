@@ -53,6 +53,7 @@ public class BookController implements GenericController {
 
             @ApiResponse(responseCode = "201", description = "Livro encontrado."),
             @ApiResponse(responseCode = "404", description = "Livro não encontrado."),
+            @ApiResponse(responseCode = "400", description = "Parâmetro inválido.")
     })
     @GetMapping("{id}")
     public ResponseEntity<SearchBookDTO> searchBook(@PathVariable @Valid String id) {
@@ -65,6 +66,7 @@ public class BookController implements GenericController {
     @ApiResponses({
             @ApiResponse(responseCode = "204", description = "Livro deletado."),
             @ApiResponse(responseCode = "404", description = "Livro não encotnrado."),
+            @ApiResponse(responseCode = "400", description = "Parâmetro inválido."),
     })
     @DeleteMapping("{id}")
     public ResponseEntity<Void> delete(@PathVariable String id) {

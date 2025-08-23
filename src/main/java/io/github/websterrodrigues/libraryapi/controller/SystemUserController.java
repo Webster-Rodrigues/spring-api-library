@@ -46,6 +46,7 @@ public class SystemUserController implements  GenericController{
     @ApiResponses({
             @ApiResponse(responseCode = "204", description = "Usuário deletado."),
             @ApiResponse(responseCode = "404", description = "Usuário não encontrado."),
+            @ApiResponse(responseCode = "400", description = "Parâmetro inválido.")
     })
     @DeleteMapping("{id}")
     public ResponseEntity<Void> delete(@PathVariable String id){
