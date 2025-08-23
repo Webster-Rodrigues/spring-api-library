@@ -31,7 +31,6 @@ public class SecurityConfiguration {
                 // (POST, PUT, DELETE, PATCH). Ele faz isso exigindo um token CSRF em cada requisição que modifica dados
                 .csrf(AbstractHttpConfigurer :: disable)
                 .formLogin(Customizer.withDefaults())
-                .httpBasic(Customizer.withDefaults())
                 .authorizeHttpRequests(authorize -> {
                     authorize.requestMatchers(HttpMethod.POST, "/users/**").permitAll(); //Permite acesso a todos os endpoints de usuários, sem autenticação
 
