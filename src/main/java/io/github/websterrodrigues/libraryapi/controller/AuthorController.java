@@ -9,6 +9,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -29,6 +31,8 @@ public class AuthorController implements GenericController {
     @Autowired
     private AuthorMapper mapper;
 
+    private static final Logger logger = LoggerFactory.getLogger(AuthorController.class);
+
 
     @Operation(summary = "Salvar", description = "Cadastrar novo autor.")
     @ApiResponses({
@@ -40,9 +44,12 @@ public class AuthorController implements GenericController {
     @PreAuthorize("hasRole('ADMIN')") // Permite que apenas usuários com a role ADMIN acessem este endpoint
     public ResponseEntity<Void> save(@RequestBody @Valid AuthorDTO dto) {
 
+        logger.info("Cadastrando novo autor");
+
         Author author = mapper.toEntity(dto);
         service.save(author);
         URI location = generateHeaderLocation(author.getId());
+
         return ResponseEntity.created(location).build();
     }
 
@@ -73,6 +80,8 @@ public class AuthorController implements GenericController {
     @DeleteMapping("{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> delete(@PathVariable String id) {
+
+        logger.info("Deletando autor de ID: {}", id);
 
         service.delete(UUID.fromString(id));
         return ResponseEntity.noContent().build();
@@ -105,6 +114,9 @@ public class AuthorController implements GenericController {
     @PutMapping({"{id}"})
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> update(@PathVariable String id, @RequestBody @Valid AuthorDTO dto) {
+
+        logger.info("Atualizando autor de ID: {}", id);
+
         UUID idAuthor = UUID.fromString(id);
         Author author = mapper.toEntity(dto);
         author.setId(idAuthor); //Garante que o ID do autor seja o mesmo do parâmetro da URL
