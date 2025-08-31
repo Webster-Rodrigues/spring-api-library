@@ -36,11 +36,10 @@ logging:
     root: warn
     io:
       github:
-        websterrodrigues: trace
+        websterrodrigues: info
     org:
       springframework:
         web: debug
-
 
 # trace
 # debug
