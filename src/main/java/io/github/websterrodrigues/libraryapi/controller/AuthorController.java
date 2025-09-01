@@ -50,6 +50,8 @@ public class AuthorController implements GenericController {
         service.save(author);
         URI location = generateHeaderLocation(author.getId());
 
+        logger.info("Autor cadastrado com sucesso ID: {}", author.getId());
+
         return ResponseEntity.created(location).build();
     }
 
@@ -64,6 +66,8 @@ public class AuthorController implements GenericController {
     @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public ResponseEntity<AuthorDTO> getDetails(@PathVariable String id) {
         var idAuthor = UUID.fromString(id);
+
+        logger.info("Buscando detalhes do autor ID: {}", id);
 
         AuthorDTO dto = mapper.toDto(service.findById(idAuthor));
         return ResponseEntity.ok(dto);
@@ -97,6 +101,8 @@ public class AuthorController implements GenericController {
     public ResponseEntity<List<AuthorDTO>> findByFilter(
             @RequestParam(value = "nome", required = false) String name,
             @RequestParam(value = "nacionalidade", required = false) String nationality) {
+
+        logger.info("Buscando autor por NOME = {} e/ou NACIONALIDADE = {}", name, nationality);
 
         List<Author> list = service.searchByExample(name, nationality);
         List<AuthorDTO> listDTO = list.stream().map(mapper::toDto).toList();
