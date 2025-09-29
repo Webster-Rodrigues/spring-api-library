@@ -1,219 +1,52 @@
-2025-09-24T20:20:25.863-03:00  INFO 3456 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Starting Application using Java 21.0.6 with PID 3456 (C:\Users\WEBSTER\ws-Idea\libraryapi\target\classes started by WEBSTER in C:\Users\WEBSTER\ws-Idea\libraryapi)
-2025-09-24T20:20:25.871-03:00 DEBUG 3456 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Running with Spring Boot v3.4.7, Spring v6.2.8
-2025-09-24T20:20:25.871-03:00  INFO 3456 --- [libraryapi] [main] i.g.w.libraryapi.Application             : No active profile set, falling back to 1 default profile: "default"
-2025-09-24T20:20:29.260-03:00  WARN 3456 --- [libraryapi] [main] com.zaxxer.hikari.HikariConfig           : library-db-pool - idleTimeout is close to or more than maxLifetime, disabling it.
-2025-09-24T20:20:30.375-03:00 ERROR 3456 --- [libraryapi] [main] o.s.b.web.embedded.tomcat.TomcatStarter  : Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'jwtCustomAuthenticationFilter' defined in file [C:\Users\WEBSTER\ws-Idea\libraryapi\target\classes\io\github\websterrodrigues\libraryapi\security\JwtCustomAuthenticationFilter.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'systemUserService': Unsatisfied dependency expressed through field 'repository': Error creating bean with name 'systemUserRepository' defined in io.github.websterrodrigues.libraryapi.repository.SystemUserRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaSharedEM_entityManagerFactory' while setting bean property 'entityManager'
-2025-09-24T20:20:30.430-03:00  WARN 3456 --- [libraryapi] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
-2025-09-24T20:20:30.461-03:00 ERROR 3456 --- [libraryapi] [main] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.context.ApplicationContextException: Unable to start web server
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:170) ~[spring-boot-3.4.7.jar:3.4.7]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.7.jar:3.4.7]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.7.jar:3.4.7]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.7.jar:3.4.7]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.7.jar:3.4.7]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.7.jar:3.4.7]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.7.jar:3.4.7]
-	at io.github.websterrodrigues.libraryapi.Application.main(Application.java:16) ~[classes/:na]
-Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:147) ~[spring-boot-3.4.7.jar:3.4.7]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:107) ~[spring-boot-3.4.7.jar:3.4.7]
-	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:517) ~[spring-boot-3.4.7.jar:3.4.7]
-	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:219) ~[spring-boot-3.4.7.jar:3.4.7]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:193) ~[spring-boot-3.4.7.jar:3.4.7]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:167) ~[spring-boot-3.4.7.jar:3.4.7]
-	... 8 common frames omitted
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'jwtCustomAuthenticationFilter' defined in file [C:\Users\WEBSTER\ws-Idea\libraryapi\target\classes\io\github\websterrodrigues\libraryapi\security\JwtCustomAuthenticationFilter.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'systemUserService': Unsatisfied dependency expressed through field 'repository': Error creating bean with name 'systemUserRepository' defined in io.github.websterrodrigues.libraryapi.repository.SystemUserRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaSharedEM_entityManagerFactory' while setting bean property 'entityManager'
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:211) ~[spring-boot-3.4.7.jar:3.4.7]
-	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:174) ~[spring-boot-3.4.7.jar:3.4.7]
-	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:169) ~[spring-boot-3.4.7.jar:3.4.7]
-	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:154) ~[spring-boot-3.4.7.jar:3.4.7]
-	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:87) ~[spring-boot-3.4.7.jar:3.4.7]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:271) ~[spring-boot-3.4.7.jar:3.4.7]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:245) ~[spring-boot-3.4.7.jar:3.4.7]
-	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52) ~[spring-boot-3.4.7.jar:3.4.7]
-	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4464) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
-	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145) ~[na:na]
-	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
-	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:772) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
-	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
-	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145) ~[na:na]
-	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
-	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:203) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
-	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:412) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
-	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:870) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
-	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:438) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:128) ~[spring-boot-3.4.7.jar:3.4.7]
-	... 13 common frames omitted
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'systemUserService': Unsatisfied dependency expressed through field 'repository': Error creating bean with name 'systemUserRepository' defined in io.github.websterrodrigues.libraryapi.repository.SystemUserRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaSharedEM_entityManagerFactory' while setting bean property 'entityManager'
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1459) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1745) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1628) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.8.jar:6.2.8]
-	... 54 common frames omitted
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'systemUserRepository' defined in io.github.websterrodrigues.libraryapi.repository.SystemUserRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaSharedEM_entityManagerFactory' while setting bean property 'entityManager'
-	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:377) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1725) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1474) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1745) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1628) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785) ~[spring-beans-6.2.8.jar:6.2.8]
-	... 69 common frames omitted
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaSharedEM_entityManagerFactory': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument
-	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:377) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:691) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:513) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365) ~[spring-beans-6.2.8.jar:6.2.8]
-	... 82 common frames omitted
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'hikariDataSource' defined in class path resource [io/github/websterrodrigues/libraryapi/config/DatabaseConfiguration.class]: Failed to instantiate [javax.sql.DataSource]: Factory method 'hikariDataSource' threw exception with message: Failed to initialize pool: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365) ~[spring-beans-6.2.8.jar:6.2.8]
-	... 94 common frames omitted
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'hikariDataSource' defined in class path resource [io/github/websterrodrigues/libraryapi/config/DatabaseConfiguration.class]: Failed to instantiate [javax.sql.DataSource]: Factory method 'hikariDataSource' threw exception with message: Failed to initialize pool: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1745) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1628) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.8.jar:6.2.8]
-	... 106 common frames omitted
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.sql.DataSource]: Factory method 'hikariDataSource' threw exception with message: Failed to initialize pool: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:199) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:88) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:168) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-6.2.8.jar:6.2.8]
-	... 120 common frames omitted
-Caused by: com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
-	at com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:584) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:571) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:80) ~[HikariCP-5.1.0.jar:na]
-	at io.github.websterrodrigues.libraryapi.config.DatabaseConfiguration.hikariDataSource(DatabaseConfiguration.java:43) ~[classes/:na]
-	at io.github.websterrodrigues.libraryapi.config.DatabaseConfiguration$$SpringCGLIB$$0.CGLIB$hikariDataSource$0(<generated>) ~[classes/:na]
-	at io.github.websterrodrigues.libraryapi.config.DatabaseConfiguration$$SpringCGLIB$$FastClass$$1.invoke(<generated>) ~[classes/:na]
-	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258) ~[spring-core-6.2.8.jar:6.2.8]
-	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:400) ~[spring-context-6.2.8.jar:6.2.8]
-	at io.github.websterrodrigues.libraryapi.config.DatabaseConfiguration$$SpringCGLIB$$0.hikariDataSource(<generated>) ~[classes/:na]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:171) ~[spring-beans-6.2.8.jar:6.2.8]
-	... 123 common frames omitted
-Caused by: org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:373) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:277) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.7.jar:42.7.7]
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550) ~[HikariCP-5.1.0.jar:na]
-	... 134 common frames omitted
-Caused by: java.net.ConnectException: Connection refused: getsockopt
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
-	at org.postgresql.core.PGStream.createSocket(PGStream.java:261) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.core.PGStream.<init>(PGStream.java:122) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:146) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289) ~[postgresql-42.7.7.jar:42.7.7]
-	... 143 common frames omitted
-
-2025-09-24T20:20:40.071-03:00  INFO 13808 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Starting Application using Java 21.0.6 with PID 13808 (C:\Users\WEBSTER\ws-Idea\libraryapi\target\classes started by WEBSTER in C:\Users\WEBSTER\ws-Idea\libraryapi)
-2025-09-24T20:20:40.073-03:00 DEBUG 13808 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Running with Spring Boot v3.4.7, Spring v6.2.8
-2025-09-24T20:20:40.074-03:00  INFO 13808 --- [libraryapi] [main] i.g.w.libraryapi.Application             : No active profile set, falling back to 1 default profile: "default"
-2025-09-24T20:20:42.194-03:00  WARN 13808 --- [libraryapi] [main] com.zaxxer.hikari.HikariConfig           : library-db-pool - idleTimeout is close to or more than maxLifetime, disabling it.
-2025-09-24T20:20:45.341-03:00 DEBUG 13808 --- [libraryapi] [main] i.g.w.l.s.JwtCustomAuthenticationFilter  : Filter 'jwtCustomAuthenticationFilter' configured for use
-2025-09-24T20:20:46.584-03:00  WARN 13808 --- [libraryapi] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-09-24T20:20:47.765-03:00  WARN 13808 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v2/api-docs/**'], Ant [pattern='/v2/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2025-09-24T20:20:47.766-03:00  WARN 13808 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v3/api-docs/**'], Ant [pattern='/v3/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2025-09-24T20:20:47.766-03:00  WARN 13808 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-resources/**'], Ant [pattern='/swagger-resources/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2025-09-24T20:20:47.766-03:00  WARN 13808 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui/**'], Ant [pattern='/swagger-ui/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2025-09-24T20:20:47.766-03:00  WARN 13808 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui.html'], Ant [pattern='/swagger-ui.html']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2025-09-24T20:20:47.766-03:00  WARN 13808 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/webjars/**'], Ant [pattern='/webjars/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2025-09-24T20:20:48.146-03:00  INFO 13808 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Started Application in 8.57 seconds (process running for 8.97)
-2025-09-24T20:22:21.492-03:00  INFO 13808 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/66d73a33-a985-4b2d-9128-29fc889b3f5f
-2025-09-24T20:22:21.517-03:00  INFO 13808 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 66d73a33-a985-4b2d-9128-29fc889b3f5f
-2025-09-24T20:22:21.518-03:00 DEBUG 13808 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.libraryapi.aspects.LoggingAspect   : [START] Iniciando chamada [AuthorService.delete]
-2025-09-24T20:22:21.518-03:00  INFO 13808 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.libraryapi.aspects.LoggingAspect   : [METHOD] delete | Deletando Author ID 66d73a33-a985-4b2d-9128-29fc889b3f5f no repository
-2025-09-24T20:22:21.586-03:00  INFO 13808 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.libraryapi.aspects.LoggingAspect   : [AUDIT] Responsável pela deleção [web] ROLES: [[ADMIN]]
-2025-09-24T20:22:21.586-03:00  INFO 13808 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.libraryapi.aspects.LoggingAspect   : [RETURN] Author ID: 66d73a33-a985-4b2d-9128-29fc889b3f5f deletado com sucesso!
-2025-09-24T20:22:21.586-03:00 DEBUG 13808 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.libraryapi.aspects.LoggingAspect   : [END] Chamada [AuthorService.delete] finalizada!
-2025-09-24T20:22:21.603-03:00 DEBUG 13808 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.interceptor.RequestInterceptor   : Controller executadocom sucesso /authors/66d73a33-a985-4b2d-9128-29fc889b3f5f
-2025-09-24T20:22:21.604-03:00  INFO 13808 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/66d73a33-a985-4b2d-9128-29fc889b3f5f | Requisição finalizada | Status Code: 204
+2025-09-28T20:58:23.252-03:00  INFO 12244 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Starting Application using Java 21.0.6 with PID 12244 (C:\Users\WEBSTER\ws-Idea\libraryapi\target\classes started by WEBSTER in C:\Users\WEBSTER\ws-Idea\libraryapi)
+2025-09-28T20:58:23.254-03:00 DEBUG 12244 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Running with Spring Boot v3.4.7, Spring v6.2.8
+2025-09-28T20:58:23.254-03:00  INFO 12244 --- [libraryapi] [main] i.g.w.libraryapi.Application             : No active profile set, falling back to 1 default profile: "default"
+2025-09-28T20:58:25.304-03:00  WARN 12244 --- [libraryapi] [main] com.zaxxer.hikari.HikariConfig           : library-db-pool - idleTimeout is close to or more than maxLifetime, disabling it.
+2025-09-28T20:58:27.403-03:00 DEBUG 12244 --- [libraryapi] [main] i.g.w.l.s.JwtCustomAuthenticationFilter  : Filter 'jwtCustomAuthenticationFilter' configured for use
+2025-09-28T20:58:28.265-03:00  WARN 12244 --- [libraryapi] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-09-28T20:58:29.155-03:00  WARN 12244 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v2/api-docs/**'], Ant [pattern='/v2/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-09-28T20:58:29.157-03:00  WARN 12244 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v3/api-docs/**'], Ant [pattern='/v3/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-09-28T20:58:29.157-03:00  WARN 12244 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-resources/**'], Ant [pattern='/swagger-resources/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-09-28T20:58:29.157-03:00  WARN 12244 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui/**'], Ant [pattern='/swagger-ui/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-09-28T20:58:29.157-03:00  WARN 12244 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui.html'], Ant [pattern='/swagger-ui.html']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-09-28T20:58:29.157-03:00  WARN 12244 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/webjars/**'], Ant [pattern='/webjars/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-09-28T20:58:29.520-03:00  INFO 12244 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Started Application in 6.804 seconds (process running for 7.287)
+2025-09-28T20:59:30.373-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [POST] /authors
+2025-09-28T20:59:30.476-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.controller.AuthorController      : Cadastrando novo autor
+2025-09-28T20:59:30.478-03:00 DEBUG 12244 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.libraryapi.aspects.LoggingAspect   : [START] Iniciando chamada [AuthorService.save]
+2025-09-28T20:59:30.478-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.libraryapi.aspects.LoggingAspect   : [METHOD] Save | Salvando Author no repository
+2025-09-28T20:59:30.555-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.libraryapi.aspects.LoggingAspect   : [AUDIT] Responsável pelo cadastro [web] ROLES: [[ADMIN]]
+2025-09-28T20:59:30.556-03:00 DEBUG 12244 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.libraryapi.aspects.LoggingAspect   : [RETURN] Author{id=7eee413e-b0a0-41d7-b33e-35ce699d06ad, name='Test LogsAOP', dateOfBirth=2002-10-21, nationality='Brasileira'}
+2025-09-28T20:59:30.556-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.libraryapi.aspects.LoggingAspect   : [RETURN] Author cadastrado com sucesso!
+2025-09-28T20:59:30.556-03:00 DEBUG 12244 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.libraryapi.aspects.LoggingAspect   : [END] Chamada [AuthorService.save] finalizada!
+2025-09-28T20:59:30.557-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.controller.AuthorController      : Autor cadastrado com sucesso ID: 7eee413e-b0a0-41d7-b33e-35ce699d06ad
+2025-09-28T20:59:30.562-03:00 DEBUG 12244 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.interceptor.RequestInterceptor   : Controller executadocom sucesso /authors
+2025-09-28T20:59:30.563-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.interceptor.RequestInterceptor   : [POST] /authors | Requisição finalizada | Status Code: 201
+2025-09-28T21:01:29.463-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-2] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [GET] /authors/7eee413e-b0a0-41d7-b33e-35ce699d06ad
+2025-09-28T21:01:29.468-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-2] i.g.w.l.controller.AuthorController      : Buscando detalhes do autor ID: 7eee413e-b0a0-41d7-b33e-35ce699d06ad
+2025-09-28T21:01:29.469-03:00 DEBUG 12244 --- [libraryapi] [http-nio-8080-exec-2] i.g.w.libraryapi.aspects.LoggingAspect   : [START] Iniciando chamada [AuthorService.findById]
+2025-09-28T21:01:29.469-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-2] i.g.w.libraryapi.aspects.LoggingAspect   : [METHOD] FindById | Buscando Author ID [7eee413e-b0a0-41d7-b33e-35ce699d06ad] no repository
+2025-09-28T21:01:29.485-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-2] i.g.w.libraryapi.aspects.LoggingAspect   : [AUDIT] Responsável pela busca [web] ROLES: [[ADMIN]]
+2025-09-28T21:01:29.486-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-2] i.g.w.libraryapi.aspects.LoggingAspect   : [RETURN] Author ID: [7eee413e-b0a0-41d7-b33e-35ce699d06ad] encontrado com sucesso!
+2025-09-28T21:01:29.486-03:00 DEBUG 12244 --- [libraryapi] [http-nio-8080-exec-2] i.g.w.libraryapi.aspects.LoggingAspect   : [END] Chamada [AuthorService.findById] finalizada!
+2025-09-28T21:01:29.497-03:00 DEBUG 12244 --- [libraryapi] [http-nio-8080-exec-2] i.g.w.l.interceptor.RequestInterceptor   : Controller executadocom sucesso /authors/7eee413e-b0a0-41d7-b33e-35ce699d06ad
+2025-09-28T21:01:29.498-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-2] i.g.w.l.interceptor.RequestInterceptor   : [GET] /authors/7eee413e-b0a0-41d7-b33e-35ce699d06ad | Requisição finalizada | Status Code: 200
+2025-09-28T21:02:58.401-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [PUT] /authors/7eee413e-b0a0-41d7-b33e-35ce699d06ad
+2025-09-28T21:02:58.404-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.l.controller.AuthorController      : Atualizando autor de ID: 7eee413e-b0a0-41d7-b33e-35ce699d06ad
+2025-09-28T21:02:58.404-03:00 DEBUG 12244 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.libraryapi.aspects.LoggingAspect   : [START] Iniciando chamada [AuthorService.update]
+2025-09-28T21:02:58.404-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.libraryapi.aspects.LoggingAspect   : [METHOD] Update | Atualizando Author ID 7eee413e-b0a0-41d7-b33e-35ce699d06ad no repository
+2025-09-28T21:02:58.427-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.libraryapi.aspects.LoggingAspect   : [AUDIT] Responsável pela modificação [web] ROLES: [[ADMIN]]
+2025-09-28T21:02:58.428-03:00 DEBUG 12244 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.libraryapi.aspects.LoggingAspect   : [RETURN] Author{id=7eee413e-b0a0-41d7-b33e-35ce699d06ad, name='HAHAHAHAHAHAH', dateOfBirth=2005-10-21, nationality='Brasileira'}
+2025-09-28T21:02:58.428-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.libraryapi.aspects.LoggingAspect   : [RETURN] Author ID: 7eee413e-b0a0-41d7-b33e-35ce699d06ad atualizado com sucesso!
+2025-09-28T21:02:58.429-03:00 DEBUG 12244 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.libraryapi.aspects.LoggingAspect   : [END] Chamada [AuthorService.update] finalizada!
+2025-09-28T21:02:58.429-03:00 DEBUG 12244 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.l.interceptor.RequestInterceptor   : Controller executadocom sucesso /authors/7eee413e-b0a0-41d7-b33e-35ce699d06ad
+2025-09-28T21:02:58.429-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.l.interceptor.RequestInterceptor   : [PUT] /authors/7eee413e-b0a0-41d7-b33e-35ce699d06ad | Requisição finalizada | Status Code: 204
+2025-09-28T21:04:36.026-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-8] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/7eee413e-b0a0-41d7-b33e-35ce699d06ad
+2025-09-28T21:04:36.027-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-8] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 7eee413e-b0a0-41d7-b33e-35ce699d06ad
+2025-09-28T21:04:36.028-03:00 DEBUG 12244 --- [libraryapi] [http-nio-8080-exec-8] i.g.w.libraryapi.aspects.LoggingAspect   : [START] Iniciando chamada [AuthorService.delete]
+2025-09-28T21:04:36.028-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-8] i.g.w.libraryapi.aspects.LoggingAspect   : [METHOD] Delete | Deletando Author ID 7eee413e-b0a0-41d7-b33e-35ce699d06ad no repository
+2025-09-28T21:04:36.049-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-8] i.g.w.libraryapi.aspects.LoggingAspect   : [AUDIT] Responsável pela deleção [web] ROLES: [[ADMIN]]
+2025-09-28T21:04:36.049-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-8] i.g.w.libraryapi.aspects.LoggingAspect   : [RETURN] Author ID: 7eee413e-b0a0-41d7-b33e-35ce699d06ad deletado com sucesso!
+2025-09-28T21:04:36.049-03:00 DEBUG 12244 --- [libraryapi] [http-nio-8080-exec-8] i.g.w.libraryapi.aspects.LoggingAspect   : [END] Chamada [AuthorService.delete] finalizada!
+2025-09-28T21:04:36.050-03:00 DEBUG 12244 --- [libraryapi] [http-nio-8080-exec-8] i.g.w.l.interceptor.RequestInterceptor   : Controller executadocom sucesso /authors/7eee413e-b0a0-41d7-b33e-35ce699d06ad
+2025-09-28T21:04:36.050-03:00  INFO 12244 --- [libraryapi] [http-nio-8080-exec-8] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/7eee413e-b0a0-41d7-b33e-35ce699d06ad | Requisição finalizada | Status Code: 204

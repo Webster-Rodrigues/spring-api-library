@@ -21,7 +21,7 @@ public class RequestInterceptor implements HandlerInterceptor {
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        logger.debug("Controller executadocom sucesso {}", request.getRequestURI());
+        logger.debug("Controller executado com sucesso {}", request.getRequestURI());
     }
 
     @Override

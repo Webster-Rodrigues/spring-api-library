@@ -41,15 +41,15 @@ public class LoggingAspect {
     public Object logAroundFindById(ProceedingJoinPoint joinPoint) throws Throwable {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
 
-        logger.debug("[START] Iniciando chamada [{}.{}]", joinPoint.getSignature().getDeclaringType().getSimpleName(), joinPoint.getSignature().getName());
-        logger.info("[METHOD] {} | Buscando {} ID {} no repository", joinPoint.getSignature().getName(), signature.getReturnType().getSimpleName(), joinPoint.getArgs());
+        logger.debug("[START] Iniciando chamada [{}.{}]", signature.getDeclaringType().getSimpleName(), signature.getName());
+        logger.info("[METHOD] FindById | Buscando {} ID {} no repository", signature.getReturnType().getSimpleName(), joinPoint.getArgs());
 
         Object obj = joinPoint.proceed();
         SystemUser user = securityService.getAuthenticatedUser();
 
         logger.info("[AUDIT] Responsável pela busca [{}] ROLES: [{}]", user.getLogin(), user.getRoles());
-        logger.info("[RETURN] {} ID: {} encontrado com sucesso!", obj.getClass().getSimpleName(),joinPoint.getArgs());
-        logger.debug("[END] Chamada [{}.{}] finalizada!", joinPoint.getSignature().getDeclaringType().getSimpleName(), joinPoint.getSignature().getName());
+        logger.info("[RETURN] {} ID: {} encontrado com sucesso!", obj.getClass().getSimpleName(), joinPoint.getArgs());
+        logger.debug("[END] Chamada [{}.{}] finalizada!", signature.getDeclaringType().getSimpleName(), signature.getName());
         return obj;
     }
 
@@ -57,8 +57,8 @@ public class LoggingAspect {
     public Object logAroundSave(ProceedingJoinPoint joinPoint) throws Throwable {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
 
-        logger.debug("[START] Iniciando chamada [{}.{}]", joinPoint.getSignature().getDeclaringType().getSimpleName(), joinPoint.getSignature().getName());
-        logger.info("[METHOD] {} | Salvando {} no repository", joinPoint.getSignature().getName(), signature.getReturnType().getSimpleName());
+        logger.debug("[START] Iniciando chamada [{}.{}]", signature.getDeclaringType().getSimpleName(),signature.getName());
+        logger.info("[METHOD] Save | Salvando {} no repository", signature.getReturnType().getSimpleName());
 
         Object obj = joinPoint.proceed();
         SystemUser user = securityService.getAuthenticatedUser();
@@ -66,38 +66,40 @@ public class LoggingAspect {
         logger.info("[AUDIT] Responsável pelo cadastro [{}] ROLES: [{}]", user.getLogin(), user.getRoles());
         logger.debug("[RETURN] {}", obj);
         logger.info("[RETURN] {} cadastrado com sucesso!", obj.getClass().getSimpleName(),joinPoint.getArgs());
-        logger.debug("[END] Chamada [{}.{}] finalizada!", joinPoint.getSignature().getDeclaringType().getSimpleName(), joinPoint.getSignature().getName());
+        logger.debug("[END] Chamada [{}.{}] finalizada!", signature.getDeclaringType().getSimpleName(), signature.getName());
         return obj;
     }
 
     @Around("updateEntityMethods()")
     public Object logAroundUpdate(ProceedingJoinPoint joinPoint) throws Throwable {
+        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
 
-        logger.debug("[START] Iniciando chamada [{}.{}]", joinPoint.getSignature().getDeclaringType().getSimpleName(), joinPoint.getSignature().getName());
-        logger.info("[METHOD] {} | Atualizando {} ID {} no repository", joinPoint.getSignature().getName(), joinPoint.getArgs()[0].getClass().getSimpleName(),joinPoint.getArgs()[0].getClass().getMethod("getId").invoke(joinPoint.getArgs()[0]));
+        logger.debug("[START] Iniciando chamada [{}.{}]", signature.getDeclaringType().getSimpleName(), signature.getName());
+        logger.info("[METHOD] Update | Atualizando {} ID {} no repository", joinPoint.getArgs()[0].getClass().getSimpleName(), joinPoint.getArgs()[0].getClass().getMethod("getId").invoke(joinPoint.getArgs()[0]));
 
         Object obj = joinPoint.proceed();
         SystemUser user = securityService.getAuthenticatedUser();
 
         logger.info("[AUDIT] Responsável pela modificação [{}] ROLES: [{}]", user.getLogin(), user.getRoles());
-        logger.debug("[RETURN] {}", joinPoint.getArgs());
+        logger.debug("[RETURN] {}", joinPoint.getArgs()[0]);
         logger.info("[RETURN] {} ID: {} atualizado com sucesso!", joinPoint.getArgs()[0].getClass().getSimpleName(), joinPoint.getArgs()[0].getClass().getMethod("getId").invoke(joinPoint.getArgs()[0]));
-        logger.debug("[END] Chamada [{}.{}] finalizada!", joinPoint.getSignature().getDeclaringType().getSimpleName(), joinPoint.getSignature().getName());
+        logger.debug("[END] Chamada [{}.{}] finalizada!", signature.getDeclaringType().getSimpleName(), signature.getName());
         return obj;
     }
 
     @Around("deleteEntityMethods()")
     public Object logAroundDelete(ProceedingJoinPoint joinPoint) throws Throwable {
+        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
 
-        logger.debug("[START] Iniciando chamada [{}.{}]", joinPoint.getSignature().getDeclaringType().getSimpleName(), joinPoint.getSignature().getName());
-        logger.info("[METHOD] {} | Deletando {} ID {} no repository", joinPoint.getSignature().getName(), joinPoint.getSignature().getDeclaringType().getSimpleName().replace("Service",""), joinPoint.getArgs()[0]);
+        logger.debug("[START] Iniciando chamada [{}.{}]", signature.getDeclaringType().getSimpleName(), signature.getName());
+        logger.info("[METHOD] Delete | Deletando {} ID {} no repository", signature.getDeclaringType().getSimpleName().replace("Service",""), joinPoint.getArgs()[0]);
 
         Object obj = joinPoint.proceed();
         SystemUser user = securityService.getAuthenticatedUser();
 
         logger.info("[AUDIT] Responsável pela deleção [{}] ROLES: [{}]", user.getLogin(), user.getRoles());
-        logger.info("[RETURN] {} ID: {} deletado com sucesso!", joinPoint.getSignature().getDeclaringType().getSimpleName().replace("Service",""), joinPoint.getArgs()[0]);
-        logger.debug("[END] Chamada [{}.{}] finalizada!", joinPoint.getSignature().getDeclaringType().getSimpleName(), joinPoint.getSignature().getName());
+        logger.info("[RETURN] {} ID: {} deletado com sucesso!", signature.getDeclaringType().getSimpleName().replace("Service",""), joinPoint.getArgs()[0]);
+        logger.debug("[END] Chamada [{}.{}] finalizada!", signature.getDeclaringType().getSimpleName(), joinPoint.getSignature().getName());
         return obj;
     }
 
