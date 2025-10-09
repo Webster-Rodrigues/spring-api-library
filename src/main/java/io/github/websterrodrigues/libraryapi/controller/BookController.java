@@ -11,6 +11,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +34,8 @@ public class BookController implements GenericController {
     @Autowired
     private BookMapper mapper;
 
+    private static final Logger logger = LoggerFactory.getLogger(BookController.class);
+
     @Operation(summary = "Salvar", description = "Cadastrar novo livro.")
     @ApiResponses({
             @ApiResponse(responseCode = "201", description = "Livro cadastrado."),
@@ -40,9 +44,13 @@ public class BookController implements GenericController {
     })
     @PostMapping
     public ResponseEntity<Void> save(@RequestBody @Valid RecordBookDTO dto) {
+        logger.info("Cadastrando novo livro");
+
         Book book = mapper.toEntity(dto);
         service.save(book);
         URI url = generateHeaderLocation(book.getId());
+
+        logger.info("Livro cadastrado com sucesso ID: {}", book.getId());
 
         return ResponseEntity.created(url).build();
     }
@@ -58,6 +66,8 @@ public class BookController implements GenericController {
     @GetMapping("{id}")
     public ResponseEntity<SearchBookDTO> searchBook(@PathVariable @Valid String id) {
 
+        logger.info("Pesquisando livro ID: {}", id);
+
         SearchBookDTO book = mapper.toDto(service.findById(UUID.fromString(id)));
         return ResponseEntity.ok(book);
     }
@@ -70,6 +80,8 @@ public class BookController implements GenericController {
     })
     @DeleteMapping("{id}")
     public ResponseEntity<Void> delete(@PathVariable String id) {
+        logger.info("Deletando livro ID: {}", id);
+
         service.delete(UUID.fromString(id));
         return ResponseEntity.noContent().build();
     }
@@ -91,6 +103,9 @@ public class BookController implements GenericController {
         @RequestParam (value = "year-publication", required = false) Integer yearDate,
         @RequestParam (value = "page", defaultValue = "0") Integer page,
         @RequestParam (value = "size", defaultValue = "10") Integer size) {
+        
+        logger.info("Pesquisando livro por filtros isbn: {}, title: {}, authorName: {}, genre: {}, yearDate: {}, page: {}, size: {}",
+                isbn, title, authorName, genre, yearDate, page, size);
 
         Page<SearchBookDTO> list = service.searchByFilter(isbn, title, authorName, genre, yearDate, page, size).map(mapper::toDto);
 
@@ -106,6 +121,8 @@ public class BookController implements GenericController {
     })
     @PutMapping("{id}")
     public ResponseEntity<Void> update(@PathVariable String id, @RequestBody @Valid RecordBookDTO dto){
+        logger.info("Atualizando livro ID: {}", id);
+
         UUID idBook = UUID.fromString(id);
         Book book = mapper.toEntity(dto);
         book.setId(idBook);
