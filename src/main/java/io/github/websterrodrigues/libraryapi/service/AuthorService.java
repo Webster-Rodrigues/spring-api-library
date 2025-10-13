@@ -7,6 +7,7 @@ import io.github.websterrodrigues.libraryapi.repository.AuthorRepository;
 import io.github.websterrodrigues.libraryapi.security.SecurityService;
 import io.github.websterrodrigues.libraryapi.validator.AuthorValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,10 @@ public class AuthorService {
     @Autowired
     private SecurityService securityService;
 
+    @Lazy //Atrasa a injeção de dependência para evitar erro de referência circular.
+    @Autowired
+    private  AuthorService self;
+
     public Author save(Author author){
         validator.validate(author);
         SystemUser user = securityService.getAuthenticatedUser();
@@ -35,7 +40,7 @@ public class AuthorService {
     }
 
     public void update(Author author){
-        findById(author.getId());
+        self.findById(author.getId());
         SystemUser user = securityService.getAuthenticatedUser();
         author.setSystemUser(user);
         validator.validate(author);
@@ -48,7 +53,7 @@ public class AuthorService {
     }
 
     public void delete(UUID id){
-        Author author = findById(id);
+        Author author = self.findById(id);
         validator.validateRemove(author);
         repository.delete(author);
     }

@@ -8,6 +8,7 @@ import io.github.websterrodrigues.libraryapi.repository.BookRepository;
 import io.github.websterrodrigues.libraryapi.security.SecurityService;
 import io.github.websterrodrigues.libraryapi.validator.BookValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -30,6 +31,10 @@ public class BookService {
     @Autowired
     private SecurityService securityService;
 
+    @Lazy
+    @Autowired
+    private BookService self;
+
 
     public Book save(Book book) {
         validator.validate(book);
@@ -44,12 +49,12 @@ public class BookService {
     }
 
     public void delete(UUID id){
-        Book book = findById(id);
+        Book book = self.findById(id);
         repository.delete(book);
     }
 
     public void update(Book book) {
-        findById(book.getId());
+        self.findById(book.getId());
         SystemUser user = securityService.getAuthenticatedUser();
         book.setSystemUser(user);
         validator.validate(book);
