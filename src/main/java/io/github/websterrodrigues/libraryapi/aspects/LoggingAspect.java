@@ -80,7 +80,6 @@ public class LoggingAspect {
         Object obj = joinPoint.proceed();
         SystemUser user = securityService.getAuthenticatedUser();
 
-        logger.info("[AUDIT] Responsável pela modificação [{}] ROLES: [{}]", user.getLogin(), user.getRoles());
         logger.debug("[RETURN] {}", joinPoint.getArgs()[0]);
         logger.info("[RETURN] {} ID: {} atualizado com sucesso!", joinPoint.getArgs()[0].getClass().getSimpleName(), joinPoint.getArgs()[0].getClass().getMethod("getId").invoke(joinPoint.getArgs()[0]));
         logger.debug("[END] Chamada [{}.{}] finalizada!", signature.getDeclaringType().getSimpleName(), signature.getName());
@@ -97,7 +96,6 @@ public class LoggingAspect {
         Object obj = joinPoint.proceed();
         SystemUser user = securityService.getAuthenticatedUser();
 
-        logger.info("[AUDIT] Responsável pela deleção [{}] ROLES: [{}]", user.getLogin(), user.getRoles());
         logger.info("[RETURN] {} ID: {} deletado com sucesso!", signature.getDeclaringType().getSimpleName().replace("Service",""), joinPoint.getArgs()[0]);
         logger.debug("[END] Chamada [{}.{}] finalizada!", signature.getDeclaringType().getSimpleName(), joinPoint.getSignature().getName());
         return obj;
