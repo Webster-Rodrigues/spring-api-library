@@ -39,7 +39,7 @@ logging:
         websterrodrigues: debug
     org:
       springframework:
-        web: warn
+        web: debug
 
 # trace
 # debug

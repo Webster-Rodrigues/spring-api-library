@@ -1,27 +1,1158 @@
-2025-10-25T16:48:13.369-03:00  INFO 3624 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Starting Application using Java 21.0.6 with PID 3624 (C:\Users\WEBSTER\ws-Idea\libraryapi\target\classes started by WEBSTER in C:\Users\WEBSTER\ws-Idea\libraryapi)
-2025-10-25T16:48:13.374-03:00 DEBUG 3624 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Running with Spring Boot v3.4.7, Spring v6.2.8
-2025-10-25T16:48:13.375-03:00  INFO 3624 --- [libraryapi] [main] i.g.w.libraryapi.Application             : No active profile set, falling back to 1 default profile: "default"
-2025-10-25T16:48:15.566-03:00  WARN 3624 --- [libraryapi] [main] com.zaxxer.hikari.HikariConfig           : library-db-pool - idleTimeout is close to or more than maxLifetime, disabling it.
-2025-10-25T16:48:17.815-03:00 DEBUG 3624 --- [libraryapi] [main] i.g.w.l.s.JwtCustomAuthenticationFilter  : Filter 'jwtCustomAuthenticationFilter' configured for use
-2025-10-25T16:48:18.700-03:00  WARN 3624 --- [libraryapi] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-10-25T16:48:19.471-03:00  WARN 3624 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v2/api-docs/**'], Ant [pattern='/v2/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2025-10-25T16:48:19.471-03:00  WARN 3624 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v3/api-docs/**'], Ant [pattern='/v3/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2025-10-25T16:48:19.471-03:00  WARN 3624 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-resources/**'], Ant [pattern='/swagger-resources/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2025-10-25T16:48:19.471-03:00  WARN 3624 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui/**'], Ant [pattern='/swagger-ui/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2025-10-25T16:48:19.472-03:00  WARN 3624 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui.html'], Ant [pattern='/swagger-ui.html']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2025-10-25T16:48:19.472-03:00  WARN 3624 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/webjars/**'], Ant [pattern='/webjars/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2025-10-25T16:48:19.788-03:00  INFO 3624 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Started Application in 6.98 seconds (process running for 7.447)
-2025-10-25T16:48:42.191-03:00  INFO 3624 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [PUT] /authors/5fb24c5c-5ac9-483e-a2d1-82ea441eef71
-2025-10-25T16:48:42.312-03:00  INFO 3624 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.controller.AuthorController      : Atualizando autor de ID: 5fb24c5c-5ac9-483e-a2d1-82ea441eef71
-2025-10-25T16:48:42.313-03:00 DEBUG 3624 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.libraryapi.aspects.LoggingAspect   : [START] Iniciando chamada [AuthorService.update]
-2025-10-25T16:48:42.314-03:00  INFO 3624 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.libraryapi.aspects.LoggingAspect   : [METHOD] Update | Atualizando Author ID 5fb24c5c-5ac9-483e-a2d1-82ea441eef71 no repository
-2025-10-25T16:48:42.314-03:00 DEBUG 3624 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.libraryapi.aspects.LoggingAspect   : [START] Iniciando chamada [AuthorService.findById]
-2025-10-25T16:48:42.314-03:00  INFO 3624 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.libraryapi.aspects.LoggingAspect   : [METHOD] FindById | Buscando Author ID [5fb24c5c-5ac9-483e-a2d1-82ea441eef71] no repository
-2025-10-25T16:48:42.352-03:00  INFO 3624 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.libraryapi.aspects.LoggingAspect   : [AUDIT] Responsável pela busca [web] ROLES: [[ADMIN]]
-2025-10-25T16:48:42.353-03:00  INFO 3624 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.libraryapi.aspects.LoggingAspect   : [RETURN] Author ID: [5fb24c5c-5ac9-483e-a2d1-82ea441eef71] encontrado com sucesso!
-2025-10-25T16:48:42.353-03:00 DEBUG 3624 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.libraryapi.aspects.LoggingAspect   : [END] Chamada [AuthorService.findById] finalizada!
-2025-10-25T16:48:42.430-03:00 DEBUG 3624 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.libraryapi.aspects.LoggingAspect   : [RETURN] Author{id=5fb24c5c-5ac9-483e-a2d1-82ea441eef71, name='HkkkkkkkkkkH', dateOfBirth=2005-10-05, nationality='Israel'}
-2025-10-25T16:48:42.431-03:00  INFO 3624 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.libraryapi.aspects.LoggingAspect   : [RETURN] Author ID: 5fb24c5c-5ac9-483e-a2d1-82ea441eef71 atualizado com sucesso!
-2025-10-25T16:48:42.431-03:00 DEBUG 3624 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.libraryapi.aspects.LoggingAspect   : [END] Chamada [AuthorService.update] finalizada!
-2025-10-25T16:48:42.438-03:00 DEBUG 3624 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.interceptor.RequestInterceptor   : Controller executado com sucesso. | ROTA /authors/5fb24c5c-5ac9-483e-a2d1-82ea441eef71
-2025-10-25T16:48:42.439-03:00  INFO 3624 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.interceptor.RequestInterceptor   : [PUT] /authors/5fb24c5c-5ac9-483e-a2d1-82ea441eef71 | Requisição finalizada | Status Code: 204
+2025-10-25T18:55:08.949-03:00  INFO 9772 --- [libraryapi] [http-nio-8080-exec-6] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/4c6c2ded-d575-46a
+2025-10-25T18:55:08.972-03:00  INFO 9772 --- [libraryapi] [http-nio-8080-exec-6] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 4c6c2ded-d575-46a
+2025-10-25T18:55:09.004-03:00  INFO 9772 --- [libraryapi] [http-nio-8080-exec-6] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/4c6c2ded-d575-46a | Requisição finalizada | Status Code: 400
+2025-10-25T18:55:26.427-03:00  INFO 9772 --- [libraryapi] [http-nio-8080-exec-2] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/4c6c2ded-d575-46ab-9d4d-
+2025-10-25T18:55:26.428-03:00  INFO 9772 --- [libraryapi] [http-nio-8080-exec-2] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 4c6c2ded-d575-46ab-9d4d-
+2025-10-25T18:55:26.429-03:00  INFO 9772 --- [libraryapi] [http-nio-8080-exec-2] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/4c6c2ded-d575-46ab-9d4d- | Requisição finalizada | Status Code: 400
+2025-10-25T18:56:06.490-03:00  INFO 9772 --- [libraryapi] [http-nio-8080-exec-8] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/:id
+2025-10-25T18:56:06.491-03:00  INFO 9772 --- [libraryapi] [http-nio-8080-exec-8] i.g.w.l.controller.AuthorController      : Deletando autor de ID: :id
+2025-10-25T18:56:06.492-03:00  INFO 9772 --- [libraryapi] [http-nio-8080-exec-8] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/:id | Requisição finalizada | Status Code: 400
+2025-10-25T18:56:11.852-03:00  INFO 9772 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/4c6c2ded-d575-46ab-9d4d-
+2025-10-25T18:56:11.853-03:00  INFO 9772 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 4c6c2ded-d575-46ab-9d4d-
+2025-10-25T18:56:11.854-03:00  INFO 9772 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/4c6c2ded-d575-46ab-9d4d- | Requisição finalizada | Status Code: 400
+2025-10-25T19:00:21.857-03:00  INFO 9772 --- [libraryapi] [http-nio-8080-exec-1] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/:id
+2025-10-25T19:00:21.858-03:00  INFO 9772 --- [libraryapi] [http-nio-8080-exec-1] i.g.w.l.controller.AuthorController      : Deletando autor de ID: :id
+2025-10-25T19:00:21.859-03:00  INFO 9772 --- [libraryapi] [http-nio-8080-exec-1] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/:id | Requisição finalizada | Status Code: 400
+2025-10-25T19:00:42.574-03:00  INFO 9772 --- [libraryapi] [http-nio-8080-exec-7] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/4c6c2ded-d575-46ab-9d4d-
+2025-10-25T19:00:42.575-03:00  INFO 9772 --- [libraryapi] [http-nio-8080-exec-7] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 4c6c2ded-d575-46ab-9d4d-
+2025-10-25T19:00:42.576-03:00  INFO 9772 --- [libraryapi] [http-nio-8080-exec-7] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/4c6c2ded-d575-46ab-9d4d- | Requisição finalizada | Status Code: 400
+2025-10-25T19:01:07.644-03:00  INFO 9772 --- [libraryapi] [http-nio-8080-exec-3] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/4c6c2ded-d575-46ab-9d4d-
+2025-10-25T19:01:07.644-03:00  INFO 9772 --- [libraryapi] [http-nio-8080-exec-3] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 4c6c2ded-d575-46ab-9d4d-
+2025-10-25T19:01:07.645-03:00  INFO 9772 --- [libraryapi] [http-nio-8080-exec-3] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/4c6c2ded-d575-46ab-9d4d- | Requisição finalizada | Status Code: 400
+2025-10-25T19:02:28.523-03:00  INFO 8108 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Starting Application using Java 21.0.6 with PID 8108 (C:\Users\WEBSTER\ws-Idea\libraryapi\target\classes started by WEBSTER in C:\Users\WEBSTER\ws-Idea\libraryapi)
+2025-10-25T19:02:28.525-03:00 DEBUG 8108 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Running with Spring Boot v3.4.7, Spring v6.2.8
+2025-10-25T19:02:28.526-03:00  INFO 8108 --- [libraryapi] [main] i.g.w.libraryapi.Application             : No active profile set, falling back to 1 default profile: "default"
+2025-10-25T19:02:30.664-03:00  WARN 8108 --- [libraryapi] [main] com.zaxxer.hikari.HikariConfig           : library-db-pool - idleTimeout is close to or more than maxLifetime, disabling it.
+2025-10-25T19:02:32.506-03:00 DEBUG 8108 --- [libraryapi] [main] i.g.w.l.s.JwtCustomAuthenticationFilter  : Filter 'jwtCustomAuthenticationFilter' configured for use
+2025-10-25T19:02:33.339-03:00  WARN 8108 --- [libraryapi] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-25T19:02:34.090-03:00  WARN 8108 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v2/api-docs/**'], Ant [pattern='/v2/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:02:34.091-03:00  WARN 8108 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v3/api-docs/**'], Ant [pattern='/v3/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:02:34.091-03:00  WARN 8108 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-resources/**'], Ant [pattern='/swagger-resources/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:02:34.091-03:00  WARN 8108 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui/**'], Ant [pattern='/swagger-ui/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:02:34.091-03:00  WARN 8108 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui.html'], Ant [pattern='/swagger-ui.html']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:02:34.091-03:00  WARN 8108 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/webjars/**'], Ant [pattern='/webjars/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:02:34.377-03:00  INFO 8108 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Started Application in 6.312 seconds (process running for 6.665)
+2025-10-25T19:02:48.545-03:00  INFO 8108 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/4c6c2ded-d575-46ab-9d4d-
+2025-10-25T19:02:48.576-03:00  INFO 8108 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 4c6c2ded-d575-46ab-9d4d-
+2025-10-25T19:02:48.579-03:00 ERROR 8108 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.e.GlobalExceptionHandler         : [ERROR] Argumento ilegal: 
+2025-10-25T19:02:48.623-03:00  INFO 8108 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/4c6c2ded-d575-46ab-9d4d- | Requisição finalizada | Status Code: 400
+2025-10-25T19:02:57.567-03:00  INFO 8108 --- [libraryapi] [http-nio-8080-exec-2] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/:id
+2025-10-25T19:02:57.568-03:00  INFO 8108 --- [libraryapi] [http-nio-8080-exec-2] i.g.w.l.controller.AuthorController      : Deletando autor de ID: :id
+2025-10-25T19:02:57.569-03:00 ERROR 8108 --- [libraryapi] [http-nio-8080-exec-2] i.g.w.l.e.GlobalExceptionHandler         : [ERROR] Argumento ilegal: Invalid UUID string: :id
+2025-10-25T19:02:57.570-03:00  INFO 8108 --- [libraryapi] [http-nio-8080-exec-2] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/:id | Requisição finalizada | Status Code: 400
+2025-10-25T19:10:49.819-03:00  INFO 8108 --- [libraryapi] [http-nio-8080-exec-3] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/4c6c2ded-d575-46ab-9d4d-
+2025-10-25T19:10:49.820-03:00  INFO 8108 --- [libraryapi] [http-nio-8080-exec-3] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 4c6c2ded-d575-46ab-9d4d-
+2025-10-25T19:10:49.821-03:00 ERROR 8108 --- [libraryapi] [http-nio-8080-exec-3] i.g.w.l.e.GlobalExceptionHandler         : [ERROR] Argumento ilegal: 
+2025-10-25T19:10:49.822-03:00  INFO 8108 --- [libraryapi] [http-nio-8080-exec-3] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/4c6c2ded-d575-46ab-9d4d- | Requisição finalizada | Status Code: 400
+2025-10-25T19:11:02.989-03:00  INFO 7368 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Starting Application using Java 21.0.6 with PID 7368 (C:\Users\WEBSTER\ws-Idea\libraryapi\target\classes started by WEBSTER in C:\Users\WEBSTER\ws-Idea\libraryapi)
+2025-10-25T19:11:02.990-03:00 DEBUG 7368 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Running with Spring Boot v3.4.7, Spring v6.2.8
+2025-10-25T19:11:02.991-03:00  INFO 7368 --- [libraryapi] [main] i.g.w.libraryapi.Application             : No active profile set, falling back to 1 default profile: "default"
+2025-10-25T19:11:04.675-03:00  WARN 7368 --- [libraryapi] [main] com.zaxxer.hikari.HikariConfig           : library-db-pool - idleTimeout is close to or more than maxLifetime, disabling it.
+2025-10-25T19:11:06.337-03:00 DEBUG 7368 --- [libraryapi] [main] i.g.w.l.s.JwtCustomAuthenticationFilter  : Filter 'jwtCustomAuthenticationFilter' configured for use
+2025-10-25T19:11:07.041-03:00  WARN 7368 --- [libraryapi] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-25T19:11:07.834-03:00  WARN 7368 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v2/api-docs/**'], Ant [pattern='/v2/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:11:07.835-03:00  WARN 7368 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v3/api-docs/**'], Ant [pattern='/v3/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:11:07.835-03:00  WARN 7368 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-resources/**'], Ant [pattern='/swagger-resources/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:11:07.835-03:00  WARN 7368 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui/**'], Ant [pattern='/swagger-ui/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:11:07.835-03:00  WARN 7368 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui.html'], Ant [pattern='/swagger-ui.html']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:11:07.835-03:00  WARN 7368 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/webjars/**'], Ant [pattern='/webjars/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:11:08.126-03:00  INFO 7368 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Started Application in 5.81 seconds (process running for 6.147)
+2025-10-25T19:11:15.527-03:00  INFO 10812 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Starting Application using Java 21.0.6 with PID 10812 (C:\Users\WEBSTER\ws-Idea\libraryapi\target\classes started by WEBSTER in C:\Users\WEBSTER\ws-Idea\libraryapi)
+2025-10-25T19:11:15.530-03:00 DEBUG 10812 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Running with Spring Boot v3.4.7, Spring v6.2.8
+2025-10-25T19:11:15.531-03:00  INFO 10812 --- [libraryapi] [main] i.g.w.libraryapi.Application             : No active profile set, falling back to 1 default profile: "default"
+2025-10-25T19:11:17.372-03:00  WARN 10812 --- [libraryapi] [main] com.zaxxer.hikari.HikariConfig           : library-db-pool - idleTimeout is close to or more than maxLifetime, disabling it.
+2025-10-25T19:11:19.048-03:00 DEBUG 10812 --- [libraryapi] [main] i.g.w.l.s.JwtCustomAuthenticationFilter  : Filter 'jwtCustomAuthenticationFilter' configured for use
+2025-10-25T19:11:19.801-03:00  WARN 10812 --- [libraryapi] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-25T19:11:20.767-03:00  WARN 10812 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v2/api-docs/**'], Ant [pattern='/v2/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:11:20.767-03:00  WARN 10812 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v3/api-docs/**'], Ant [pattern='/v3/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:11:20.768-03:00  WARN 10812 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-resources/**'], Ant [pattern='/swagger-resources/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:11:20.768-03:00  WARN 10812 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui/**'], Ant [pattern='/swagger-ui/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:11:20.768-03:00  WARN 10812 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui.html'], Ant [pattern='/swagger-ui.html']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:11:20.768-03:00  WARN 10812 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/webjars/**'], Ant [pattern='/webjars/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:11:21.025-03:00  INFO 10812 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Started Application in 5.985 seconds (process running for 6.32)
+2025-10-25T19:11:41.130-03:00  INFO 10812 --- [libraryapi] [http-nio-8080-exec-6] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/4c6c2ded-d575-46ab-9d4d-
+2025-10-25T19:11:41.152-03:00  INFO 10812 --- [libraryapi] [http-nio-8080-exec-6] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 4c6c2ded-d575-46ab-9d4d-
+2025-10-25T19:11:41.154-03:00 ERROR 10812 --- [libraryapi] [http-nio-8080-exec-6] i.g.w.l.e.GlobalExceptionHandler         : [ERROR] Argumento ilegal: 
+2025-10-25T19:11:41.184-03:00  INFO 10812 --- [libraryapi] [http-nio-8080-exec-6] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/4c6c2ded-d575-46ab-9d4d- | Requisição finalizada | Status Code: 400
+2025-10-25T19:19:52.985-03:00  INFO 10812 --- [libraryapi] [http-nio-8080-exec-3] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/:id
+2025-10-25T19:19:52.986-03:00  INFO 10812 --- [libraryapi] [http-nio-8080-exec-3] i.g.w.l.controller.AuthorController      : Deletando autor de ID: :id
+2025-10-25T19:19:52.986-03:00 ERROR 10812 --- [libraryapi] [http-nio-8080-exec-3] i.g.w.l.e.GlobalExceptionHandler         : [ERROR] Argumento ilegal: Invalid UUID string: :id
+2025-10-25T19:19:52.987-03:00  INFO 10812 --- [libraryapi] [http-nio-8080-exec-3] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/:id | Requisição finalizada | Status Code: 400
+2025-10-25T19:21:34.771-03:00  INFO 17992 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Starting Application using Java 21.0.6 with PID 17992 (C:\Users\WEBSTER\ws-Idea\libraryapi\target\classes started by WEBSTER in C:\Users\WEBSTER\ws-Idea\libraryapi)
+2025-10-25T19:21:34.773-03:00 DEBUG 17992 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Running with Spring Boot v3.4.7, Spring v6.2.8
+2025-10-25T19:21:34.774-03:00  INFO 17992 --- [libraryapi] [main] i.g.w.libraryapi.Application             : No active profile set, falling back to 1 default profile: "default"
+2025-10-25T19:21:36.505-03:00  WARN 17992 --- [libraryapi] [main] com.zaxxer.hikari.HikariConfig           : library-db-pool - idleTimeout is close to or more than maxLifetime, disabling it.
+2025-10-25T19:21:38.114-03:00 DEBUG 17992 --- [libraryapi] [main] i.g.w.l.s.JwtCustomAuthenticationFilter  : Filter 'jwtCustomAuthenticationFilter' configured for use
+2025-10-25T19:21:38.834-03:00  WARN 17992 --- [libraryapi] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-25T19:21:38.983-03:00 DEBUG 17992 --- [libraryapi] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 20 mappings in 'requestMappingHandlerMapping'
+2025-10-25T19:21:39.069-03:00 DEBUG 17992 --- [libraryapi] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-10-25T19:21:39.460-03:00  WARN 17992 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v2/api-docs/**'], Ant [pattern='/v2/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:21:39.461-03:00  WARN 17992 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v3/api-docs/**'], Ant [pattern='/v3/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:21:39.461-03:00  WARN 17992 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-resources/**'], Ant [pattern='/swagger-resources/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:21:39.461-03:00  WARN 17992 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui/**'], Ant [pattern='/swagger-ui/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:21:39.461-03:00  WARN 17992 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui.html'], Ant [pattern='/swagger-ui.html']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:21:39.461-03:00  WARN 17992 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/webjars/**'], Ant [pattern='/webjars/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T19:21:39.537-03:00 DEBUG 17992 --- [libraryapi] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-10-25T19:21:39.571-03:00 DEBUG 17992 --- [libraryapi] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-10-25T19:21:39.716-03:00  INFO 17992 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Started Application in 5.368 seconds (process running for 5.683)
+2025-10-25T19:21:50.055-03:00  INFO 17992 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-25T19:21:50.055-03:00 DEBUG 17992 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2025-10-25T19:21:50.055-03:00 DEBUG 17992 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2025-10-25T19:21:50.055-03:00 DEBUG 17992 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2025-10-25T19:21:50.056-03:00 DEBUG 17992 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@58c7bb01
+2025-10-25T19:21:50.056-03:00 DEBUG 17992 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@73f3bf4f
+2025-10-25T19:21:50.057-03:00 DEBUG 17992 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-10-25T19:21:50.057-03:00  INFO 17992 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-10-25T19:22:08.458-03:00 DEBUG 17992 --- [libraryapi] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : DELETE "/authors/:id", parameters={}
+2025-10-25T19:22:08.458-03:00 DEBUG 17992 --- [libraryapi] [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to io.github.websterrodrigues.libraryapi.controller.AuthorController#delete(String)
+2025-10-25T19:22:08.458-03:00  INFO 17992 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/:id
+2025-10-25T19:22:08.481-03:00  INFO 17992 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.controller.AuthorController      : Deletando autor de ID: :id
+2025-10-25T19:22:08.483-03:00 DEBUG 17992 --- [libraryapi] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler io.github.websterrodrigues.libraryapi.exceptions.GlobalExceptionHandler#handleIllegalArgumentException(IllegalArgumentException)
+2025-10-25T19:22:08.483-03:00 ERROR 17992 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.e.GlobalExceptionHandler         : [ERROR] Argumento ilegal: Invalid UUID string: :id
+2025-10-25T19:22:08.509-03:00 DEBUG 17992 --- [libraryapi] [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-10-25T19:22:08.512-03:00 DEBUG 17992 --- [libraryapi] [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [ResponseError[Status=400, message=Invalid UUID string: :id, errors=[]]]
+2025-10-25T19:22:08.516-03:00 DEBUG 17992 --- [libraryapi] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.IllegalArgumentException: Invalid UUID string: :id]
+2025-10-25T19:22:08.517-03:00  INFO 17992 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/:id | Requisição finalizada | Status Code: 400
+2025-10-25T19:22:08.517-03:00 DEBUG 17992 --- [libraryapi] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2025-10-25T19:22:22.602-03:00 DEBUG 17992 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : DELETE "/authors/4c6c2ded-d575-46ab-9d4d-", parameters={}
+2025-10-25T19:22:22.602-03:00 DEBUG 17992 --- [libraryapi] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to io.github.websterrodrigues.libraryapi.controller.AuthorController#delete(String)
+2025-10-25T19:22:22.602-03:00  INFO 17992 --- [libraryapi] [http-nio-8080-exec-1] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/4c6c2ded-d575-46ab-9d4d-
+2025-10-25T19:22:22.603-03:00  INFO 17992 --- [libraryapi] [http-nio-8080-exec-1] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 4c6c2ded-d575-46ab-9d4d-
+2025-10-25T19:22:22.603-03:00 DEBUG 17992 --- [libraryapi] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler io.github.websterrodrigues.libraryapi.exceptions.GlobalExceptionHandler#handleIllegalArgumentException(IllegalArgumentException)
+2025-10-25T19:22:22.604-03:00 ERROR 17992 --- [libraryapi] [http-nio-8080-exec-1] i.g.w.l.e.GlobalExceptionHandler         : [ERROR] Argumento ilegal: 
+2025-10-25T19:22:22.604-03:00 DEBUG 17992 --- [libraryapi] [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-10-25T19:22:22.604-03:00 DEBUG 17992 --- [libraryapi] [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [ResponseError[Status=400, message=, errors=[]]]
+2025-10-25T19:22:22.605-03:00 DEBUG 17992 --- [libraryapi] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: ]
+2025-10-25T19:22:22.605-03:00  INFO 17992 --- [libraryapi] [http-nio-8080-exec-1] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/4c6c2ded-d575-46ab-9d4d- | Requisição finalizada | Status Code: 400
+2025-10-25T19:22:22.605-03:00 DEBUG 17992 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2025-10-25T20:13:37.819-03:00  INFO 7428 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Starting Application using Java 21.0.6 with PID 7428 (C:\Users\WEBSTER\ws-Idea\libraryapi\target\classes started by WEBSTER in C:\Users\WEBSTER\ws-Idea\libraryapi)
+2025-10-25T20:13:37.821-03:00 DEBUG 7428 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Running with Spring Boot v3.4.7, Spring v6.2.8
+2025-10-25T20:13:37.821-03:00  INFO 7428 --- [libraryapi] [main] i.g.w.libraryapi.Application             : No active profile set, falling back to 1 default profile: "default"
+2025-10-25T20:13:40.107-03:00  WARN 7428 --- [libraryapi] [main] com.zaxxer.hikari.HikariConfig           : library-db-pool - idleTimeout is close to or more than maxLifetime, disabling it.
+2025-10-25T20:13:42.073-03:00 DEBUG 7428 --- [libraryapi] [main] i.g.w.l.s.JwtCustomAuthenticationFilter  : Filter 'jwtCustomAuthenticationFilter' configured for use
+2025-10-25T20:13:42.875-03:00  WARN 7428 --- [libraryapi] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-25T20:13:43.046-03:00 DEBUG 7428 --- [libraryapi] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 20 mappings in 'requestMappingHandlerMapping'
+2025-10-25T20:13:43.138-03:00 DEBUG 7428 --- [libraryapi] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-10-25T20:13:43.701-03:00  WARN 7428 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v2/api-docs/**'], Ant [pattern='/v2/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:13:43.702-03:00  WARN 7428 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v3/api-docs/**'], Ant [pattern='/v3/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:13:43.702-03:00  WARN 7428 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-resources/**'], Ant [pattern='/swagger-resources/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:13:43.702-03:00  WARN 7428 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui/**'], Ant [pattern='/swagger-ui/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:13:43.702-03:00  WARN 7428 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui.html'], Ant [pattern='/swagger-ui.html']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:13:43.702-03:00  WARN 7428 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/webjars/**'], Ant [pattern='/webjars/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:13:43.788-03:00 DEBUG 7428 --- [libraryapi] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-10-25T20:13:43.834-03:00 DEBUG 7428 --- [libraryapi] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-10-25T20:13:44.022-03:00  INFO 7428 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Started Application in 6.73 seconds (process running for 7.14)
+2025-10-25T20:20:18.622-03:00  INFO 7428 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-25T20:20:18.623-03:00 DEBUG 7428 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2025-10-25T20:20:18.623-03:00 DEBUG 7428 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2025-10-25T20:20:18.623-03:00 DEBUG 7428 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2025-10-25T20:20:18.623-03:00 DEBUG 7428 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@30369973
+2025-10-25T20:20:18.624-03:00 DEBUG 7428 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@709de434
+2025-10-25T20:20:18.624-03:00 DEBUG 7428 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-10-25T20:20:18.624-03:00  INFO 7428 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-10-25T20:20:38.419-03:00 DEBUG 7428 --- [libraryapi] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : DELETE "/authors/4c6c2ded-d575-46ab-9d4d-", parameters={}
+2025-10-25T20:20:38.420-03:00 DEBUG 7428 --- [libraryapi] [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to io.github.websterrodrigues.libraryapi.controller.AuthorController#delete(String)
+2025-10-25T20:20:38.420-03:00  INFO 7428 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/4c6c2ded-d575-46ab-9d4d-
+2025-10-25T20:20:38.443-03:00  INFO 7428 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 4c6c2ded-d575-46ab-9d4d-
+2025-10-25T20:20:38.445-03:00 DEBUG 7428 --- [libraryapi] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler io.github.websterrodrigues.libraryapi.exceptions.GlobalExceptionHandler#handleException(RuntimeException)
+2025-10-25T20:20:38.445-03:00 ERROR 7428 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.e.GlobalExceptionHandler         : [ERROR] Erro inesperado:
+
+java.lang.NumberFormatException: 
+	at java.base/java.lang.Long.parseLong(Long.java:803) ~[na:na]
+	at java.base/java.util.UUID.fromString1(UUID.java:292) ~[na:na]
+	at java.base/java.util.UUID.fromString(UUID.java:260) ~[na:na]
+	at io.github.websterrodrigues.libraryapi.controller.AuthorController.delete(AuthorController.java:90) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-6.2.8.jar:6.2.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.2.8.jar:6.2.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.2.8.jar:6.2.8]
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.proceed(AuthorizationManagerBeforeMethodInterceptor.java:268) ~[spring-security-core-6.4.7.jar:6.4.7]
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.attemptAuthorization(AuthorizationManagerBeforeMethodInterceptor.java:263) ~[spring-security-core-6.4.7.jar:6.4.7]
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.invoke(AuthorizationManagerBeforeMethodInterceptor.java:196) ~[spring-security-core-6.4.7.jar:6.4.7]
+	at org.springframework.security.config.annotation.method.configuration.DeferringMethodInterceptor.invoke(DeferringMethodInterceptor.java:44) ~[spring-security-config-6.4.7.jar:6.4.7]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.8.jar:6.2.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728) ~[spring-aop-6.2.8.jar:6.2.8]
+	at io.github.websterrodrigues.libraryapi.controller.AuthorController$$SpringCGLIB$$0.delete(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:936) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:596) ~[tomcat-embed-core-10.1.42.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.42.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at io.github.websterrodrigues.libraryapi.security.JwtCustomAuthenticationFilter.doFilterInternal(JwtCustomAuthenticationFilter.java:41) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter.doFilterInternal(BearerTokenAuthenticationFilter.java:145) ~[spring-security-oauth2-resource-server-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:58) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:220) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:206) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultResourcesFilter.doFilter(DefaultResourcesFilter.java:72) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:198) ~[spring-security-oauth2-client-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238) ~[spring-security-config-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2025-10-25T20:20:38.477-03:00 DEBUG 7428 --- [libraryapi] [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-10-25T20:20:38.479-03:00 DEBUG 7428 --- [libraryapi] [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [ResponseError[Status=500, message=Ocorreu um erro inesperado. Etre em contato com o suporte., errors (truncated)...]
+2025-10-25T20:20:38.484-03:00 DEBUG 7428 --- [libraryapi] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: ]
+2025-10-25T20:20:38.484-03:00  INFO 7428 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/4c6c2ded-d575-46ab-9d4d- | Requisição finalizada | Status Code: 500
+2025-10-25T20:20:38.484-03:00 DEBUG 7428 --- [libraryapi] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 500 INTERNAL_SERVER_ERROR
+2025-10-25T20:30:42.495-03:00  INFO 8040 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Starting Application using Java 21.0.6 with PID 8040 (C:\Users\WEBSTER\ws-Idea\libraryapi\target\classes started by WEBSTER in C:\Users\WEBSTER\ws-Idea\libraryapi)
+2025-10-25T20:30:42.496-03:00 DEBUG 8040 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Running with Spring Boot v3.4.7, Spring v6.2.8
+2025-10-25T20:30:42.497-03:00  INFO 8040 --- [libraryapi] [main] i.g.w.libraryapi.Application             : No active profile set, falling back to 1 default profile: "default"
+2025-10-25T20:30:44.377-03:00  WARN 8040 --- [libraryapi] [main] com.zaxxer.hikari.HikariConfig           : library-db-pool - idleTimeout is close to or more than maxLifetime, disabling it.
+2025-10-25T20:30:46.184-03:00 DEBUG 8040 --- [libraryapi] [main] i.g.w.l.s.JwtCustomAuthenticationFilter  : Filter 'jwtCustomAuthenticationFilter' configured for use
+2025-10-25T20:30:46.975-03:00  WARN 8040 --- [libraryapi] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-25T20:30:47.126-03:00 DEBUG 8040 --- [libraryapi] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 20 mappings in 'requestMappingHandlerMapping'
+2025-10-25T20:30:47.220-03:00 DEBUG 8040 --- [libraryapi] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-10-25T20:30:47.729-03:00  WARN 8040 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v2/api-docs/**'], Ant [pattern='/v2/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:30:47.729-03:00  WARN 8040 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v3/api-docs/**'], Ant [pattern='/v3/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:30:47.729-03:00  WARN 8040 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-resources/**'], Ant [pattern='/swagger-resources/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:30:47.729-03:00  WARN 8040 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui/**'], Ant [pattern='/swagger-ui/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:30:47.730-03:00  WARN 8040 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui.html'], Ant [pattern='/swagger-ui.html']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:30:47.730-03:00  WARN 8040 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/webjars/**'], Ant [pattern='/webjars/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:30:47.810-03:00 DEBUG 8040 --- [libraryapi] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-10-25T20:30:47.848-03:00 DEBUG 8040 --- [libraryapi] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-10-25T20:30:48.017-03:00  INFO 8040 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Started Application in 6.01 seconds (process running for 6.32)
+2025-10-25T20:30:53.580-03:00  INFO 8040 --- [libraryapi] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-25T20:30:53.580-03:00 DEBUG 8040 --- [libraryapi] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2025-10-25T20:30:53.580-03:00 DEBUG 8040 --- [libraryapi] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2025-10-25T20:30:53.580-03:00 DEBUG 8040 --- [libraryapi] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2025-10-25T20:30:53.581-03:00 DEBUG 8040 --- [libraryapi] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@5416bc77
+2025-10-25T20:30:53.582-03:00 DEBUG 8040 --- [libraryapi] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@551566a
+2025-10-25T20:30:53.582-03:00 DEBUG 8040 --- [libraryapi] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-10-25T20:30:53.582-03:00  INFO 8040 --- [libraryapi] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-10-25T20:30:55.822-03:00 DEBUG 8040 --- [libraryapi] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/authorized?code=BUXKxEpfnnv7ncJzhkI4IeKHRI0PL93xJ9mFi2kZH2zTxm0B2pK_ZjePWugHmYpm__7Kbvi7MHIF9BAo4a9rdZHUZph2kiEjss7a2JMkAa9Dxegz3_iDWjiDZEoDYwaf", parameters={masked}
+2025-10-25T20:30:55.823-03:00 DEBUG 8040 --- [libraryapi] [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to io.github.websterrodrigues.libraryapi.controller.AuthorizedController#getAuthorizationCode(String)
+2025-10-25T20:30:55.823-03:00  INFO 8040 --- [libraryapi] [http-nio-8080-exec-8] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [GET] /authorized
+2025-10-25T20:30:55.851-03:00 DEBUG 8040 --- [libraryapi] [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/html', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [text/plain, */*, application/json, application/*+json, application/yaml]
+2025-10-25T20:30:55.852-03:00 DEBUG 8040 --- [libraryapi] [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing ["Seu authorization code: BUXKxEpfnnv7ncJzhkI4IeKHRI0PL93xJ9mFi2kZH2zTxm0B2pK_ZjePWugHmYpm__7Kbvi7MHIF (truncated)..."]
+2025-10-25T20:30:55.855-03:00 DEBUG 8040 --- [libraryapi] [http-nio-8080-exec-8] i.g.w.l.interceptor.RequestInterceptor   : Controller executado com sucesso. | ROTA /authorized
+2025-10-25T20:30:55.855-03:00  INFO 8040 --- [libraryapi] [http-nio-8080-exec-8] i.g.w.l.interceptor.RequestInterceptor   : [GET] /authorized | Requisição finalizada | Status Code: 200
+2025-10-25T20:30:55.855-03:00 DEBUG 8040 --- [libraryapi] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-25T20:31:05.445-03:00 DEBUG 8040 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : DELETE "/authors/4c6c2ded-d575-46ab-9d4d-", parameters={}
+2025-10-25T20:31:05.445-03:00 DEBUG 8040 --- [libraryapi] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to io.github.websterrodrigues.libraryapi.controller.AuthorController#delete(String)
+2025-10-25T20:31:05.446-03:00  INFO 8040 --- [libraryapi] [http-nio-8080-exec-1] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/4c6c2ded-d575-46ab-9d4d-
+2025-10-25T20:31:05.454-03:00  INFO 8040 --- [libraryapi] [http-nio-8080-exec-1] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 4c6c2ded-d575-46ab-9d4d-
+2025-10-25T20:31:05.455-03:00 DEBUG 8040 --- [libraryapi] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler io.github.websterrodrigues.libraryapi.exceptions.GlobalExceptionHandler#handleException(RuntimeException)
+2025-10-25T20:31:05.455-03:00 ERROR 8040 --- [libraryapi] [http-nio-8080-exec-1] i.g.w.l.e.GlobalExceptionHandler         : [ERROR] Erro inesperado:
+
+java.lang.NumberFormatException: 
+	at java.base/java.lang.Long.parseLong(Long.java:803) ~[na:na]
+	at java.base/java.util.UUID.fromString1(UUID.java:292) ~[na:na]
+	at java.base/java.util.UUID.fromString(UUID.java:260) ~[na:na]
+	at io.github.websterrodrigues.libraryapi.controller.AuthorController.delete(AuthorController.java:90) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-6.2.8.jar:6.2.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.2.8.jar:6.2.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.2.8.jar:6.2.8]
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.proceed(AuthorizationManagerBeforeMethodInterceptor.java:268) ~[spring-security-core-6.4.7.jar:6.4.7]
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.attemptAuthorization(AuthorizationManagerBeforeMethodInterceptor.java:263) ~[spring-security-core-6.4.7.jar:6.4.7]
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.invoke(AuthorizationManagerBeforeMethodInterceptor.java:196) ~[spring-security-core-6.4.7.jar:6.4.7]
+	at org.springframework.security.config.annotation.method.configuration.DeferringMethodInterceptor.invoke(DeferringMethodInterceptor.java:44) ~[spring-security-config-6.4.7.jar:6.4.7]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.8.jar:6.2.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728) ~[spring-aop-6.2.8.jar:6.2.8]
+	at io.github.websterrodrigues.libraryapi.controller.AuthorController$$SpringCGLIB$$0.delete(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:936) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:596) ~[tomcat-embed-core-10.1.42.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.42.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at io.github.websterrodrigues.libraryapi.security.JwtCustomAuthenticationFilter.doFilterInternal(JwtCustomAuthenticationFilter.java:41) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter.doFilterInternal(BearerTokenAuthenticationFilter.java:145) ~[spring-security-oauth2-resource-server-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:58) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:220) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:206) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultResourcesFilter.doFilter(DefaultResourcesFilter.java:72) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:198) ~[spring-security-oauth2-client-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238) ~[spring-security-config-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2025-10-25T20:31:05.481-03:00 DEBUG 8040 --- [libraryapi] [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-10-25T20:31:05.483-03:00 DEBUG 8040 --- [libraryapi] [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [ResponseError[Status=500, message=Ocorreu um erro inesperado. Entre em contato com o suporte., error (truncated)...]
+2025-10-25T20:31:05.487-03:00 DEBUG 8040 --- [libraryapi] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: ]
+2025-10-25T20:31:05.488-03:00  INFO 8040 --- [libraryapi] [http-nio-8080-exec-1] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/4c6c2ded-d575-46ab-9d4d- | Requisição finalizada | Status Code: 500
+2025-10-25T20:31:05.488-03:00 DEBUG 8040 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 500 INTERNAL_SERVER_ERROR
+2025-10-25T20:31:46.713-03:00  INFO 6300 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Starting Application using Java 21.0.6 with PID 6300 (C:\Users\WEBSTER\ws-Idea\libraryapi\target\classes started by WEBSTER in C:\Users\WEBSTER\ws-Idea\libraryapi)
+2025-10-25T20:31:46.715-03:00 DEBUG 6300 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Running with Spring Boot v3.4.7, Spring v6.2.8
+2025-10-25T20:31:46.716-03:00  INFO 6300 --- [libraryapi] [main] i.g.w.libraryapi.Application             : No active profile set, falling back to 1 default profile: "default"
+2025-10-25T20:31:48.639-03:00  WARN 6300 --- [libraryapi] [main] com.zaxxer.hikari.HikariConfig           : library-db-pool - idleTimeout is close to or more than maxLifetime, disabling it.
+2025-10-25T20:31:50.254-03:00 DEBUG 6300 --- [libraryapi] [main] i.g.w.l.s.JwtCustomAuthenticationFilter  : Filter 'jwtCustomAuthenticationFilter' configured for use
+2025-10-25T20:31:50.962-03:00  WARN 6300 --- [libraryapi] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-25T20:31:51.103-03:00 DEBUG 6300 --- [libraryapi] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 20 mappings in 'requestMappingHandlerMapping'
+2025-10-25T20:31:51.199-03:00 DEBUG 6300 --- [libraryapi] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-10-25T20:31:51.771-03:00  WARN 6300 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v2/api-docs/**'], Ant [pattern='/v2/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:31:51.772-03:00  WARN 6300 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v3/api-docs/**'], Ant [pattern='/v3/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:31:51.772-03:00  WARN 6300 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-resources/**'], Ant [pattern='/swagger-resources/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:31:51.772-03:00  WARN 6300 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui/**'], Ant [pattern='/swagger-ui/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:31:51.772-03:00  WARN 6300 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui.html'], Ant [pattern='/swagger-ui.html']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:31:51.772-03:00  WARN 6300 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/webjars/**'], Ant [pattern='/webjars/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:31:51.842-03:00 DEBUG 6300 --- [libraryapi] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-10-25T20:31:51.876-03:00 DEBUG 6300 --- [libraryapi] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-10-25T20:31:52.019-03:00  INFO 6300 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Started Application in 5.831 seconds (process running for 6.206)
+2025-10-25T20:31:52.163-03:00  INFO 6300 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-25T20:31:52.163-03:00 DEBUG 6300 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2025-10-25T20:31:52.164-03:00 DEBUG 6300 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2025-10-25T20:31:52.164-03:00 DEBUG 6300 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2025-10-25T20:31:52.165-03:00 DEBUG 6300 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@eefc1bf
+2025-10-25T20:31:52.166-03:00 DEBUG 6300 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@d980dac
+2025-10-25T20:31:52.166-03:00 DEBUG 6300 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-10-25T20:31:52.166-03:00  INFO 6300 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2025-10-25T20:31:59.892-03:00 DEBUG 6300 --- [libraryapi] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/authorized?code=WRy18O0iEU_wPlhWiRlTswlnwfOsD19patTdvDgtWQKrarxb7S_FqYHqyUGWvWEbPH0K4ImBNBNxVmDcoB_Y9qTxtAd6THbQ650DXCryTHaoE-YKHaLSh5og3lWEPgHh", parameters={masked}
+2025-10-25T20:31:59.893-03:00 DEBUG 6300 --- [libraryapi] [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to io.github.websterrodrigues.libraryapi.controller.AuthorizedController#getAuthorizationCode(String)
+2025-10-25T20:31:59.894-03:00  INFO 6300 --- [libraryapi] [http-nio-8080-exec-2] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [GET] /authorized
+2025-10-25T20:31:59.923-03:00 DEBUG 6300 --- [libraryapi] [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/html', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [text/plain, */*, application/json, application/*+json, application/yaml]
+2025-10-25T20:31:59.924-03:00 DEBUG 6300 --- [libraryapi] [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing ["Seu authorization code: WRy18O0iEU_wPlhWiRlTswlnwfOsD19patTdvDgtWQKrarxb7S_FqYHqyUGWvWEbPH0K4ImBNBNx (truncated)..."]
+2025-10-25T20:31:59.927-03:00 DEBUG 6300 --- [libraryapi] [http-nio-8080-exec-2] i.g.w.l.interceptor.RequestInterceptor   : Controller executado com sucesso. | ROTA /authorized
+2025-10-25T20:31:59.928-03:00  INFO 6300 --- [libraryapi] [http-nio-8080-exec-2] i.g.w.l.interceptor.RequestInterceptor   : [GET] /authorized | Requisição finalizada | Status Code: 200
+2025-10-25T20:31:59.928-03:00 DEBUG 6300 --- [libraryapi] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-25T20:32:08.227-03:00 DEBUG 6300 --- [libraryapi] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : DELETE "/authors/4c6c2ded-d575-46ab-9d4d-", parameters={}
+2025-10-25T20:32:08.228-03:00 DEBUG 6300 --- [libraryapi] [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to io.github.websterrodrigues.libraryapi.controller.AuthorController#delete(String)
+2025-10-25T20:32:08.228-03:00  INFO 6300 --- [libraryapi] [http-nio-8080-exec-4] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/4c6c2ded-d575-46ab-9d4d-
+2025-10-25T20:32:08.237-03:00  INFO 6300 --- [libraryapi] [http-nio-8080-exec-4] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 4c6c2ded-d575-46ab-9d4d-
+2025-10-25T20:32:08.238-03:00 DEBUG 6300 --- [libraryapi] [http-nio-8080-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler io.github.websterrodrigues.libraryapi.exceptions.GlobalExceptionHandler#handleException(RuntimeException)
+2025-10-25T20:32:08.239-03:00 ERROR 6300 --- [libraryapi] [http-nio-8080-exec-4] i.g.w.l.e.GlobalExceptionHandler         : [ERROR] Erro inesperado:
+
+java.lang.NumberFormatException: 
+	at java.base/java.lang.Long.parseLong(Long.java:803) ~[na:na]
+	at java.base/java.util.UUID.fromString1(UUID.java:292) ~[na:na]
+	at java.base/java.util.UUID.fromString(UUID.java:260) ~[na:na]
+	at io.github.websterrodrigues.libraryapi.controller.AuthorController.delete(AuthorController.java:90) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-6.2.8.jar:6.2.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.2.8.jar:6.2.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.2.8.jar:6.2.8]
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.proceed(AuthorizationManagerBeforeMethodInterceptor.java:268) ~[spring-security-core-6.4.7.jar:6.4.7]
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.attemptAuthorization(AuthorizationManagerBeforeMethodInterceptor.java:263) ~[spring-security-core-6.4.7.jar:6.4.7]
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.invoke(AuthorizationManagerBeforeMethodInterceptor.java:196) ~[spring-security-core-6.4.7.jar:6.4.7]
+	at org.springframework.security.config.annotation.method.configuration.DeferringMethodInterceptor.invoke(DeferringMethodInterceptor.java:44) ~[spring-security-config-6.4.7.jar:6.4.7]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.8.jar:6.2.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728) ~[spring-aop-6.2.8.jar:6.2.8]
+	at io.github.websterrodrigues.libraryapi.controller.AuthorController$$SpringCGLIB$$0.delete(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:936) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:596) ~[tomcat-embed-core-10.1.42.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.42.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at io.github.websterrodrigues.libraryapi.security.JwtCustomAuthenticationFilter.doFilterInternal(JwtCustomAuthenticationFilter.java:41) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter.doFilterInternal(BearerTokenAuthenticationFilter.java:145) ~[spring-security-oauth2-resource-server-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:58) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:220) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:206) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultResourcesFilter.doFilter(DefaultResourcesFilter.java:72) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:198) ~[spring-security-oauth2-client-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238) ~[spring-security-config-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2025-10-25T20:32:08.246-03:00  WARN 6300 --- [libraryapi] [http-nio-8080-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Failure in @ExceptionHandler io.github.websterrodrigues.libraryapi.exceptions.GlobalExceptionHandler#handleException(RuntimeException)
+
+java.lang.NullPointerException: Cannot invoke "java.lang.Throwable.toString()" because the return value of "java.lang.RuntimeException.getCause()" is null
+	at io.github.websterrodrigues.libraryapi.exceptions.GlobalExceptionHandler.handleException(GlobalExceptionHandler.java:79) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:471) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:73) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:182) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:80) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1359) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1161) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:936) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:596) ~[tomcat-embed-core-10.1.42.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.42.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at io.github.websterrodrigues.libraryapi.security.JwtCustomAuthenticationFilter.doFilterInternal(JwtCustomAuthenticationFilter.java:41) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter.doFilterInternal(BearerTokenAuthenticationFilter.java:145) ~[spring-security-oauth2-resource-server-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:58) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:220) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:206) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultResourcesFilter.doFilter(DefaultResourcesFilter.java:72) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:198) ~[spring-security-oauth2-client-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238) ~[spring-security-config-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2025-10-25T20:32:08.248-03:00  INFO 6300 --- [libraryapi] [http-nio-8080-exec-4] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/4c6c2ded-d575-46ab-9d4d- | Requisição finalizada | Status Code: 200
+2025-10-25T20:32:08.248-03:00 DEBUG 6300 --- [libraryapi] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Failed to complete request: java.lang.NumberFormatException: 
+2025-10-25T20:32:08.249-03:00 ERROR 6300 --- [libraryapi] [http-nio-8080-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NumberFormatException: ] with root cause
+
+java.lang.NumberFormatException: 
+	at java.base/java.lang.Long.parseLong(Long.java:803) ~[na:na]
+	at java.base/java.util.UUID.fromString1(UUID.java:292) ~[na:na]
+	at java.base/java.util.UUID.fromString(UUID.java:260) ~[na:na]
+	at io.github.websterrodrigues.libraryapi.controller.AuthorController.delete(AuthorController.java:90) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-6.2.8.jar:6.2.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.2.8.jar:6.2.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.2.8.jar:6.2.8]
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.proceed(AuthorizationManagerBeforeMethodInterceptor.java:268) ~[spring-security-core-6.4.7.jar:6.4.7]
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.attemptAuthorization(AuthorizationManagerBeforeMethodInterceptor.java:263) ~[spring-security-core-6.4.7.jar:6.4.7]
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.invoke(AuthorizationManagerBeforeMethodInterceptor.java:196) ~[spring-security-core-6.4.7.jar:6.4.7]
+	at org.springframework.security.config.annotation.method.configuration.DeferringMethodInterceptor.invoke(DeferringMethodInterceptor.java:44) ~[spring-security-config-6.4.7.jar:6.4.7]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.8.jar:6.2.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728) ~[spring-aop-6.2.8.jar:6.2.8]
+	at io.github.websterrodrigues.libraryapi.controller.AuthorController$$SpringCGLIB$$0.delete(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:936) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:596) ~[tomcat-embed-core-10.1.42.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.42.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at io.github.websterrodrigues.libraryapi.security.JwtCustomAuthenticationFilter.doFilterInternal(JwtCustomAuthenticationFilter.java:41) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter.doFilterInternal(BearerTokenAuthenticationFilter.java:145) ~[spring-security-oauth2-resource-server-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:58) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:220) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:206) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultResourcesFilter.doFilter(DefaultResourcesFilter.java:72) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:198) ~[spring-security-oauth2-client-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238) ~[spring-security-config-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2025-10-25T20:32:08.256-03:00 DEBUG 6300 --- [libraryapi] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for DELETE "/error", parameters={}
+2025-10-25T20:32:08.256-03:00 DEBUG 6300 --- [libraryapi] [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-10-25T20:32:08.257-03:00  INFO 6300 --- [libraryapi] [http-nio-8080-exec-4] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /error
+2025-10-25T20:32:08.261-03:00 DEBUG 6300 --- [libraryapi] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-10-25T20:32:08.262-03:00 DEBUG 6300 --- [libraryapi] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Sat Oct 25 20:32:08 BRT 2025, status=500, error=Internal Server Error, path=/authors/4c6c (truncated)...]
+2025-10-25T20:32:08.277-03:00 DEBUG 6300 --- [libraryapi] [http-nio-8080-exec-4] i.g.w.l.interceptor.RequestInterceptor   : Controller executado com sucesso. | ROTA /error
+2025-10-25T20:32:08.278-03:00  INFO 6300 --- [libraryapi] [http-nio-8080-exec-4] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /error | Requisição finalizada | Status Code: 500
+2025-10-25T20:32:08.279-03:00 DEBUG 6300 --- [libraryapi] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 500
+2025-10-25T20:35:01.102-03:00  INFO 17956 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Starting Application using Java 21.0.6 with PID 17956 (C:\Users\WEBSTER\ws-Idea\libraryapi\target\classes started by WEBSTER in C:\Users\WEBSTER\ws-Idea\libraryapi)
+2025-10-25T20:35:01.104-03:00 DEBUG 17956 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Running with Spring Boot v3.4.7, Spring v6.2.8
+2025-10-25T20:35:01.105-03:00  INFO 17956 --- [libraryapi] [main] i.g.w.libraryapi.Application             : No active profile set, falling back to 1 default profile: "default"
+2025-10-25T20:35:02.879-03:00  WARN 17956 --- [libraryapi] [main] com.zaxxer.hikari.HikariConfig           : library-db-pool - idleTimeout is close to or more than maxLifetime, disabling it.
+2025-10-25T20:35:04.663-03:00 DEBUG 17956 --- [libraryapi] [main] i.g.w.l.s.JwtCustomAuthenticationFilter  : Filter 'jwtCustomAuthenticationFilter' configured for use
+2025-10-25T20:35:05.561-03:00  WARN 17956 --- [libraryapi] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-25T20:35:05.719-03:00 DEBUG 17956 --- [libraryapi] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 20 mappings in 'requestMappingHandlerMapping'
+2025-10-25T20:35:05.819-03:00 DEBUG 17956 --- [libraryapi] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-10-25T20:35:06.306-03:00  WARN 17956 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v2/api-docs/**'], Ant [pattern='/v2/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:35:06.307-03:00  WARN 17956 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v3/api-docs/**'], Ant [pattern='/v3/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:35:06.307-03:00  WARN 17956 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-resources/**'], Ant [pattern='/swagger-resources/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:35:06.307-03:00  WARN 17956 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui/**'], Ant [pattern='/swagger-ui/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:35:06.307-03:00  WARN 17956 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui.html'], Ant [pattern='/swagger-ui.html']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:35:06.307-03:00  WARN 17956 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/webjars/**'], Ant [pattern='/webjars/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:35:06.389-03:00 DEBUG 17956 --- [libraryapi] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-10-25T20:35:06.426-03:00 DEBUG 17956 --- [libraryapi] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-10-25T20:35:06.584-03:00  INFO 17956 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Started Application in 6.042 seconds (process running for 6.424)
+2025-10-25T20:35:06.674-03:00  INFO 17956 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-25T20:35:06.674-03:00 DEBUG 17956 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2025-10-25T20:35:06.675-03:00 DEBUG 17956 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2025-10-25T20:35:06.675-03:00 DEBUG 17956 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2025-10-25T20:35:06.675-03:00 DEBUG 17956 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@26c67726
+2025-10-25T20:35:06.675-03:00 DEBUG 17956 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@371dc46e
+2025-10-25T20:35:06.676-03:00 DEBUG 17956 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-10-25T20:35:06.676-03:00  INFO 17956 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-10-25T20:35:16.467-03:00 DEBUG 17956 --- [libraryapi] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : DELETE "/authors/4c6c2ded-d575-46ab-9d4d-", parameters={}
+2025-10-25T20:35:16.468-03:00 DEBUG 17956 --- [libraryapi] [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to io.github.websterrodrigues.libraryapi.controller.AuthorController#delete(String)
+2025-10-25T20:35:16.468-03:00  INFO 17956 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/4c6c2ded-d575-46ab-9d4d-
+2025-10-25T20:35:16.490-03:00  INFO 17956 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 4c6c2ded-d575-46ab-9d4d-
+2025-10-25T20:35:16.492-03:00 DEBUG 17956 --- [libraryapi] [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler io.github.websterrodrigues.libraryapi.exceptions.GlobalExceptionHandler#handleException(RuntimeException)
+2025-10-25T20:35:16.492-03:00 ERROR 17956 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.e.GlobalExceptionHandler         : [ERROR] Erro inesperado:
+
+java.lang.NumberFormatException: 
+	at java.base/java.lang.Long.parseLong(Long.java:803) ~[na:na]
+	at java.base/java.util.UUID.fromString1(UUID.java:292) ~[na:na]
+	at java.base/java.util.UUID.fromString(UUID.java:260) ~[na:na]
+	at io.github.websterrodrigues.libraryapi.controller.AuthorController.delete(AuthorController.java:90) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-6.2.8.jar:6.2.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.2.8.jar:6.2.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.2.8.jar:6.2.8]
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.proceed(AuthorizationManagerBeforeMethodInterceptor.java:268) ~[spring-security-core-6.4.7.jar:6.4.7]
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.attemptAuthorization(AuthorizationManagerBeforeMethodInterceptor.java:263) ~[spring-security-core-6.4.7.jar:6.4.7]
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.invoke(AuthorizationManagerBeforeMethodInterceptor.java:196) ~[spring-security-core-6.4.7.jar:6.4.7]
+	at org.springframework.security.config.annotation.method.configuration.DeferringMethodInterceptor.invoke(DeferringMethodInterceptor.java:44) ~[spring-security-config-6.4.7.jar:6.4.7]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.8.jar:6.2.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728) ~[spring-aop-6.2.8.jar:6.2.8]
+	at io.github.websterrodrigues.libraryapi.controller.AuthorController$$SpringCGLIB$$0.delete(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:936) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:596) ~[tomcat-embed-core-10.1.42.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.42.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at io.github.websterrodrigues.libraryapi.security.JwtCustomAuthenticationFilter.doFilterInternal(JwtCustomAuthenticationFilter.java:41) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter.doFilterInternal(BearerTokenAuthenticationFilter.java:145) ~[spring-security-oauth2-resource-server-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:58) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:220) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:206) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.ui.DefaultResourcesFilter.doFilter(DefaultResourcesFilter.java:72) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:198) ~[spring-security-oauth2-client-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238) ~[spring-security-config-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2025-10-25T20:35:16.527-03:00 DEBUG 17956 --- [libraryapi] [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-10-25T20:35:16.529-03:00 DEBUG 17956 --- [libraryapi] [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing [ResponseError[Status=500, message=Ocorreu um erro inesperado. Entre em contato com o suporte., error (truncated)...]
+2025-10-25T20:35:16.534-03:00 DEBUG 17956 --- [libraryapi] [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: ]
+2025-10-25T20:35:16.534-03:00  INFO 17956 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/4c6c2ded-d575-46ab-9d4d- | Requisição finalizada | Status Code: 500
+2025-10-25T20:35:16.535-03:00 DEBUG 17956 --- [libraryapi] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 500 INTERNAL_SERVER_ERROR
+2025-10-25T20:58:08.895-03:00  INFO 13048 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Starting Application using Java 21.0.6 with PID 13048 (C:\Users\WEBSTER\ws-Idea\libraryapi\target\classes started by WEBSTER in C:\Users\WEBSTER\ws-Idea\libraryapi)
+2025-10-25T20:58:08.897-03:00 DEBUG 13048 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Running with Spring Boot v3.4.7, Spring v6.2.8
+2025-10-25T20:58:08.898-03:00  INFO 13048 --- [libraryapi] [main] i.g.w.libraryapi.Application             : No active profile set, falling back to 1 default profile: "default"
+2025-10-25T20:58:10.655-03:00  WARN 13048 --- [libraryapi] [main] com.zaxxer.hikari.HikariConfig           : library-db-pool - idleTimeout is close to or more than maxLifetime, disabling it.
+2025-10-25T20:58:12.362-03:00 DEBUG 13048 --- [libraryapi] [main] i.g.w.l.s.JwtCustomAuthenticationFilter  : Filter 'jwtCustomAuthenticationFilter' configured for use
+2025-10-25T20:58:13.158-03:00  WARN 13048 --- [libraryapi] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-25T20:58:13.319-03:00 DEBUG 13048 --- [libraryapi] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 20 mappings in 'requestMappingHandlerMapping'
+2025-10-25T20:58:13.430-03:00 DEBUG 13048 --- [libraryapi] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-10-25T20:58:13.910-03:00  WARN 13048 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v2/api-docs/**'], Ant [pattern='/v2/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:58:13.910-03:00  WARN 13048 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v3/api-docs/**'], Ant [pattern='/v3/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:58:13.910-03:00  WARN 13048 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-resources/**'], Ant [pattern='/swagger-resources/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:58:13.910-03:00  WARN 13048 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui/**'], Ant [pattern='/swagger-ui/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:58:13.910-03:00  WARN 13048 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui.html'], Ant [pattern='/swagger-ui.html']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:58:13.911-03:00  WARN 13048 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/webjars/**'], Ant [pattern='/webjars/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T20:58:13.988-03:00 DEBUG 13048 --- [libraryapi] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-10-25T20:58:14.028-03:00 DEBUG 13048 --- [libraryapi] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-10-25T20:58:14.188-03:00  INFO 13048 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Started Application in 5.765 seconds (process running for 6.098)
+2025-10-25T20:58:15.105-03:00  INFO 13048 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-25T20:58:15.105-03:00 DEBUG 13048 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2025-10-25T20:58:15.105-03:00 DEBUG 13048 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2025-10-25T20:58:15.105-03:00 DEBUG 13048 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2025-10-25T20:58:15.106-03:00 DEBUG 13048 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@75cc775c
+2025-10-25T20:58:15.106-03:00 DEBUG 13048 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@35595f1
+2025-10-25T20:58:15.106-03:00 DEBUG 13048 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-10-25T20:58:15.106-03:00  INFO 13048 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-10-25T20:58:28.549-03:00 DEBUG 13048 --- [libraryapi] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : DELETE "/authors/4c6c2ded-d575-46ab-9d4d-", parameters={}
+2025-10-25T20:58:28.550-03:00 DEBUG 13048 --- [libraryapi] [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to io.github.websterrodrigues.libraryapi.controller.AuthorController#delete(String)
+2025-10-25T20:58:28.550-03:00  INFO 13048 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/4c6c2ded-d575-46ab-9d4d-
+2025-10-25T20:58:28.580-03:00  INFO 13048 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 4c6c2ded-d575-46ab-9d4d-
+2025-10-25T20:58:28.582-03:00 DEBUG 13048 --- [libraryapi] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler io.github.websterrodrigues.libraryapi.exceptions.GlobalExceptionHandler#handleException(RuntimeException)
+2025-10-25T20:58:28.582-03:00 ERROR 13048 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.e.GlobalExceptionHandler         : [ERROR] Erro inesperado - Tipo: java.lang.NumberFormatException, Mensagem: 
+2025-10-25T20:58:28.619-03:00 DEBUG 13048 --- [libraryapi] [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-10-25T20:58:28.622-03:00 DEBUG 13048 --- [libraryapi] [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [ResponseError[Status=500, message=Ocorreu um erro inesperado., errors=[]]]
+2025-10-25T20:58:28.627-03:00 DEBUG 13048 --- [libraryapi] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: ]
+2025-10-25T20:58:28.627-03:00  INFO 13048 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/4c6c2ded-d575-46ab-9d4d- | Requisição finalizada | Status Code: 500
+2025-10-25T20:58:28.628-03:00 DEBUG 13048 --- [libraryapi] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 500 INTERNAL_SERVER_ERROR
+2025-10-25T21:23:26.376-03:00  INFO 13532 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Starting Application using Java 21.0.6 with PID 13532 (C:\Users\WEBSTER\ws-Idea\libraryapi\target\classes started by WEBSTER in C:\Users\WEBSTER\ws-Idea\libraryapi)
+2025-10-25T21:23:26.378-03:00 DEBUG 13532 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Running with Spring Boot v3.4.7, Spring v6.2.8
+2025-10-25T21:23:26.379-03:00  INFO 13532 --- [libraryapi] [main] i.g.w.libraryapi.Application             : No active profile set, falling back to 1 default profile: "default"
+2025-10-25T21:23:28.118-03:00  WARN 13532 --- [libraryapi] [main] com.zaxxer.hikari.HikariConfig           : library-db-pool - idleTimeout is close to or more than maxLifetime, disabling it.
+2025-10-25T21:23:29.678-03:00 DEBUG 13532 --- [libraryapi] [main] i.g.w.l.s.JwtCustomAuthenticationFilter  : Filter 'jwtCustomAuthenticationFilter' configured for use
+2025-10-25T21:23:30.374-03:00  WARN 13532 --- [libraryapi] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-25T21:23:30.510-03:00 DEBUG 13532 --- [libraryapi] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 20 mappings in 'requestMappingHandlerMapping'
+2025-10-25T21:23:30.593-03:00 DEBUG 13532 --- [libraryapi] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-10-25T21:23:31.069-03:00  WARN 13532 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v2/api-docs/**'], Ant [pattern='/v2/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T21:23:31.069-03:00  WARN 13532 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v3/api-docs/**'], Ant [pattern='/v3/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T21:23:31.069-03:00  WARN 13532 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-resources/**'], Ant [pattern='/swagger-resources/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T21:23:31.069-03:00  WARN 13532 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui/**'], Ant [pattern='/swagger-ui/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T21:23:31.069-03:00  WARN 13532 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui.html'], Ant [pattern='/swagger-ui.html']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T21:23:31.069-03:00  WARN 13532 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/webjars/**'], Ant [pattern='/webjars/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-25T21:23:31.143-03:00 DEBUG 13532 --- [libraryapi] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-10-25T21:23:31.178-03:00 DEBUG 13532 --- [libraryapi] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-10-25T21:23:31.350-03:00  INFO 13532 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Started Application in 5.466 seconds (process running for 5.788)
+2025-10-25T21:23:48.380-03:00  INFO 13532 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-25T21:23:48.380-03:00 DEBUG 13532 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2025-10-25T21:23:48.380-03:00 DEBUG 13532 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2025-10-25T21:23:48.380-03:00 DEBUG 13532 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2025-10-25T21:23:48.381-03:00 DEBUG 13532 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@75e32c4c
+2025-10-25T21:23:48.381-03:00 DEBUG 13532 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@176b8493
+2025-10-25T21:23:48.381-03:00 DEBUG 13532 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-10-25T21:23:48.382-03:00  INFO 13532 --- [libraryapi] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-10-25T21:24:05.606-03:00 DEBUG 13532 --- [libraryapi] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : DELETE "/authors/4c6c2ded-d575-46ab-9d4d-", parameters={}
+2025-10-25T21:24:05.606-03:00 DEBUG 13532 --- [libraryapi] [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to io.github.websterrodrigues.libraryapi.controller.AuthorController#delete(String)
+2025-10-25T21:24:05.607-03:00  INFO 13532 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/4c6c2ded-d575-46ab-9d4d-
+2025-10-25T21:24:05.627-03:00  INFO 13532 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 4c6c2ded-d575-46ab-9d4d-
+2025-10-25T21:24:05.628-03:00 DEBUG 13532 --- [libraryapi] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler io.github.websterrodrigues.libraryapi.exceptions.GlobalExceptionHandler#handleException(RuntimeException)
+2025-10-25T21:24:05.629-03:00 ERROR 13532 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.e.GlobalExceptionHandler         : [ERROR] Erro inesperado - Tipo: java.lang.NumberFormatException, Mensagem: 
+2025-10-25T21:24:05.655-03:00 DEBUG 13532 --- [libraryapi] [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2025-10-25T21:24:05.658-03:00 DEBUG 13532 --- [libraryapi] [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [ResponseError[Status=500, message=Ocorreu um erro inesperado., errors=[ValidationError[field=NumberF (truncated)...]
+2025-10-25T21:24:05.662-03:00 DEBUG 13532 --- [libraryapi] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: ]
+2025-10-25T21:24:05.662-03:00  INFO 13532 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/4c6c2ded-d575-46ab-9d4d- | Requisição finalizada | Status Code: 500
+2025-10-25T21:24:05.663-03:00 DEBUG 13532 --- [libraryapi] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 500 INTERNAL_SERVER_ERROR
