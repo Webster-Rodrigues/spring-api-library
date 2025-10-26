@@ -30,3 +30,175 @@
 2025-10-25T21:52:58.202-03:00  INFO 5064 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 4c6c2ded-d575-46ab-9d4d-
 2025-10-25T21:52:58.203-03:00 ERROR 5064 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.e.GlobalExceptionHandler         : [ERROR][TYPE] NumberFormatException Argumento ilegal: 
 2025-10-25T21:52:58.205-03:00  INFO 5064 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/4c6c2ded-d575-46ab-9d4d- | Requisição finalizada | Status Code: 400
+2025-10-26T14:46:48.828-03:00  INFO 18520 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Starting Application using Java 21.0.6 with PID 18520 (C:\Users\Webster\IdeaProjects\spring-api-library\target\classes started by Webster in C:\Users\Webster\IdeaProjects\spring-api-library)
+2025-10-26T14:46:48.830-03:00 DEBUG 18520 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Running with Spring Boot v3.4.7, Spring v6.2.8
+2025-10-26T14:46:48.830-03:00  INFO 18520 --- [libraryapi] [main] i.g.w.libraryapi.Application             : No active profile set, falling back to 1 default profile: "default"
+2025-10-26T14:46:51.229-03:00  WARN 18520 --- [libraryapi] [main] com.zaxxer.hikari.HikariConfig           : library-db-pool - idleTimeout is close to or more than maxLifetime, disabling it.
+2025-10-26T14:46:54.027-03:00 DEBUG 18520 --- [libraryapi] [main] i.g.w.l.s.JwtCustomAuthenticationFilter  : Filter 'jwtCustomAuthenticationFilter' configured for use
+2025-10-26T14:46:55.088-03:00  WARN 18520 --- [libraryapi] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-26T14:46:56.061-03:00  WARN 18520 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v2/api-docs/**'], Ant [pattern='/v2/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-26T14:46:56.062-03:00  WARN 18520 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v3/api-docs/**'], Ant [pattern='/v3/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-26T14:46:56.062-03:00  WARN 18520 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-resources/**'], Ant [pattern='/swagger-resources/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-26T14:46:56.062-03:00  WARN 18520 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui/**'], Ant [pattern='/swagger-ui/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-26T14:46:56.063-03:00  WARN 18520 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui.html'], Ant [pattern='/swagger-ui.html']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-26T14:46:56.063-03:00  WARN 18520 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/webjars/**'], Ant [pattern='/webjars/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-26T14:46:56.511-03:00  INFO 18520 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Started Application in 8.263 seconds (process running for 8.781)
+2025-10-26T14:50:09.389-03:00  INFO 18520 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [PUT] /authors/f139fb31-6e90-4983-9acb-51f84c2a30af
+2025-10-26T14:50:09.527-03:00  INFO 18520 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.controller.AuthorController      : Atualizando autor de ID: f139fb31-6e90-4983-9acb-51f84c2a30af
+2025-10-26T14:50:09.530-03:00 DEBUG 18520 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.libraryapi.aspects.LoggingAspect   : [START] Iniciando chamada [AuthorService.update]
+2025-10-26T14:50:09.531-03:00  INFO 18520 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.libraryapi.aspects.LoggingAspect   : [METHOD] Update | Atualizando Author ID f139fb31-6e90-4983-9acb-51f84c2a30af no repository
+2025-10-26T14:50:09.532-03:00 DEBUG 18520 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.libraryapi.aspects.LoggingAspect   : [START] Iniciando chamada [AuthorService.findById]
+2025-10-26T14:50:09.532-03:00  INFO 18520 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.libraryapi.aspects.LoggingAspect   : [METHOD] FindById | Buscando Author ID [f139fb31-6e90-4983-9acb-51f84c2a30af] no repository
+2025-10-26T14:50:09.568-03:00  INFO 18520 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.libraryapi.aspects.LoggingAspect   : [AUDIT] Responsável pela busca [web] ROLES: [[ADMIN]]
+2025-10-26T14:50:09.568-03:00  INFO 18520 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.libraryapi.aspects.LoggingAspect   : [RETURN] Author ID: [f139fb31-6e90-4983-9acb-51f84c2a30af] encontrado com sucesso!
+2025-10-26T14:50:09.568-03:00 DEBUG 18520 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.libraryapi.aspects.LoggingAspect   : [END] Chamada [AuthorService.findById] finalizada!
+2025-10-26T14:50:09.586-03:00 ERROR 18520 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.e.GlobalExceptionHandler         : [ERROR][TYPE] DuplicateRecordException | Conflito encontrado: Autor já cadastrado!
+2025-10-26T14:50:09.608-03:00  INFO 18520 --- [libraryapi] [http-nio-8080-exec-9] i.g.w.l.interceptor.RequestInterceptor   : [PUT] /authors/f139fb31-6e90-4983-9acb-51f84c2a30af | Requisição finalizada | Status Code: 409
+2025-10-26T15:13:53.749-03:00  WARN 18520 --- [libraryapi] [library-db-pool housekeeper] com.zaxxer.hikari.pool.HikariPool        : library-db-pool - Thread starvation or clock leap detected (housekeeper delta=13m2s101ms480µs100ns).
+2025-10-26T15:20:10.540-03:00  INFO 13560 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Starting Application using Java 21.0.6 with PID 13560 (C:\Users\Webster\IdeaProjects\spring-api-library\target\classes started by Webster in C:\Users\Webster\IdeaProjects\spring-api-library)
+2025-10-26T15:20:10.543-03:00 DEBUG 13560 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Running with Spring Boot v3.4.7, Spring v6.2.8
+2025-10-26T15:20:10.544-03:00  INFO 13560 --- [libraryapi] [main] i.g.w.libraryapi.Application             : No active profile set, falling back to 1 default profile: "default"
+2025-10-26T15:20:12.725-03:00  WARN 13560 --- [libraryapi] [main] com.zaxxer.hikari.HikariConfig           : library-db-pool - idleTimeout is close to or more than maxLifetime, disabling it.
+2025-10-26T15:20:14.914-03:00 DEBUG 13560 --- [libraryapi] [main] i.g.w.l.s.JwtCustomAuthenticationFilter  : Filter 'jwtCustomAuthenticationFilter' configured for use
+2025-10-26T15:20:15.771-03:00  WARN 13560 --- [libraryapi] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-26T15:20:16.631-03:00  WARN 13560 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v2/api-docs/**'], Ant [pattern='/v2/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-26T15:20:16.633-03:00  WARN 13560 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/v3/api-docs/**'], Ant [pattern='/v3/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-26T15:20:16.633-03:00  WARN 13560 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-resources/**'], Ant [pattern='/swagger-resources/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-26T15:20:16.633-03:00  WARN 13560 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui/**'], Ant [pattern='/swagger-ui/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-26T15:20:16.633-03:00  WARN 13560 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui.html'], Ant [pattern='/swagger-ui.html']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-26T15:20:16.633-03:00  WARN 13560 --- [libraryapi] [main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Deferred [Mvc [pattern='/webjars/**'], Ant [pattern='/webjars/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-10-26T15:20:16.986-03:00  INFO 13560 --- [libraryapi] [main] i.g.w.libraryapi.Application             : Started Application in 6.973 seconds (process running for 7.444)
+2025-10-26T15:20:57.529-03:00 ERROR 13560 --- [libraryapi] [http-nio-8080-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+io.github.websterrodrigues.libraryapi.exceptions.EntityNotFoundException: Usuário não encontrado! Login: WEB
+	at io.github.websterrodrigues.libraryapi.service.SystemUserService.lambda$findByLogin$1(SystemUserService.java:41) ~[classes/:na]
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403) ~[na:na]
+	at io.github.websterrodrigues.libraryapi.service.SystemUserService.findByLogin(SystemUserService.java:41) ~[classes/:na]
+	at io.github.websterrodrigues.libraryapi.security.CustomAuthenticationProvider.authenticate(CustomAuthenticationProvider.java:30) ~[classes/:na]
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:182) ~[spring-security-core-6.4.7.jar:6.4.7]
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:201) ~[spring-security-core-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.attemptAuthentication(UsernamePasswordAuthenticationFilter.java:85) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:231) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:198) ~[spring-security-oauth2-client-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267) ~[spring-webmvc-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238) ~[spring-security-config-6.4.7.jar:6.4.7]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.8.jar:6.2.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.42.jar:10.1.42]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2025-10-26T15:21:01.141-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [POST] /error
+2025-10-26T15:21:01.163-03:00 DEBUG 13560 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.interceptor.RequestInterceptor   : Controller executado com sucesso. | ROTA /error
+2025-10-26T15:21:01.168-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.interceptor.RequestInterceptor   : [POST] /error | Requisição finalizada | Status Code: 500
+2025-10-26T15:21:38.707-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [PUT] /authors/f139fb31-6e90-4983-9acb-51f84c2a30af
+2025-10-26T15:21:38.821-03:00 ERROR 13560 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.e.GlobalExceptionHandler         : [ERROR] Erro de validação: [ValidationError[field=nationality, message=Campo não corresponde os padrões de tamanho!], ValidationError[field=nationality, message=Campo obrigatório!]]
+2025-10-26T15:21:38.838-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.interceptor.RequestInterceptor   : [PUT] /authors/f139fb31-6e90-4983-9acb-51f84c2a30af | Requisição finalizada | Status Code: 422
+2025-10-26T15:22:05.031-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-1] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [PUT] /authors/f139fb31-6e90-4983-9acb-51f84c2a30af
+2025-10-26T15:22:05.041-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-1] i.g.w.l.controller.AuthorController      : Atualizando autor de ID: f139fb31-6e90-4983-9acb-51f84c2a30af
+2025-10-26T15:22:05.042-03:00 DEBUG 13560 --- [libraryapi] [http-nio-8080-exec-1] i.g.w.libraryapi.aspects.LoggingAspect   : [START] Iniciando chamada [AuthorService.update]
+2025-10-26T15:22:05.042-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-1] i.g.w.libraryapi.aspects.LoggingAspect   : [METHOD] Update | Atualizando Author ID f139fb31-6e90-4983-9acb-51f84c2a30af no repository
+2025-10-26T15:22:05.043-03:00 DEBUG 13560 --- [libraryapi] [http-nio-8080-exec-1] i.g.w.libraryapi.aspects.LoggingAspect   : [START] Iniciando chamada [AuthorService.findById]
+2025-10-26T15:22:05.043-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-1] i.g.w.libraryapi.aspects.LoggingAspect   : [METHOD] FindById | Buscando Author ID [f139fb31-6e90-4983-9acb-51f84c2a30af] no repository
+2025-10-26T15:22:05.076-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-1] i.g.w.libraryapi.aspects.LoggingAspect   : [AUDIT] Responsável pela busca [web] ROLES: [[ADMIN]]
+2025-10-26T15:22:05.077-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-1] i.g.w.libraryapi.aspects.LoggingAspect   : [RETURN] Author ID: [f139fb31-6e90-4983-9acb-51f84c2a30af] encontrado com sucesso!
+2025-10-26T15:22:05.077-03:00 DEBUG 13560 --- [libraryapi] [http-nio-8080-exec-1] i.g.w.libraryapi.aspects.LoggingAspect   : [END] Chamada [AuthorService.findById] finalizada!
+2025-10-26T15:22:05.091-03:00 ERROR 13560 --- [libraryapi] [http-nio-8080-exec-1] i.g.w.l.e.GlobalExceptionHandler         : [ERROR][TYPE] DuplicateRecordException | Conflito encontrado: Autor já cadastrado!
+2025-10-26T15:22:05.093-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-1] i.g.w.l.interceptor.RequestInterceptor   : [PUT] /authors/f139fb31-6e90-4983-9acb-51f84c2a30af | Requisição finalizada | Status Code: 409
+2025-10-26T15:23:11.863-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-6] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/102abf97-7f85-445d-9fb5-91fa69f295c7
+2025-10-26T15:23:11.865-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-6] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 102abf97-7f85-445d-9fb5-91fa69f295c7
+2025-10-26T15:23:11.865-03:00 DEBUG 13560 --- [libraryapi] [http-nio-8080-exec-6] i.g.w.libraryapi.aspects.LoggingAspect   : [START] Iniciando chamada [AuthorService.delete]
+2025-10-26T15:23:11.865-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-6] i.g.w.libraryapi.aspects.LoggingAspect   : [METHOD] Delete | Deletando Author ID 102abf97-7f85-445d-9fb5-91fa69f295c7 no repository
+2025-10-26T15:23:11.865-03:00 DEBUG 13560 --- [libraryapi] [http-nio-8080-exec-6] i.g.w.libraryapi.aspects.LoggingAspect   : [START] Iniciando chamada [AuthorService.findById]
+2025-10-26T15:23:11.865-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-6] i.g.w.libraryapi.aspects.LoggingAspect   : [METHOD] FindById | Buscando Author ID [102abf97-7f85-445d-9fb5-91fa69f295c7] no repository
+2025-10-26T15:23:11.870-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-6] i.g.w.libraryapi.aspects.LoggingAspect   : [AUDIT] Responsável pela busca [web] ROLES: [[ADMIN]]
+2025-10-26T15:23:11.871-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-6] i.g.w.libraryapi.aspects.LoggingAspect   : [RETURN] Author ID: [102abf97-7f85-445d-9fb5-91fa69f295c7] encontrado com sucesso!
+2025-10-26T15:23:11.871-03:00 DEBUG 13560 --- [libraryapi] [http-nio-8080-exec-6] i.g.w.libraryapi.aspects.LoggingAspect   : [END] Chamada [AuthorService.findById] finalizada!
+2025-10-26T15:23:11.881-03:00 ERROR 13560 --- [libraryapi] [http-nio-8080-exec-6] i.g.w.l.e.GlobalExceptionHandler         : [ERROR][TYPE] InvalidOperationException | Operação inválida: Autor possui livros associados e não pode ser removido.
+2025-10-26T15:23:11.882-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-6] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/102abf97-7f85-445d-9fb5-91fa69f295c7 | Requisição finalizada | Status Code: 409
+2025-10-26T15:23:30.986-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/:id
+2025-10-26T15:23:30.987-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.l.controller.AuthorController      : Deletando autor de ID: :id
+2025-10-26T15:23:30.988-03:00 ERROR 13560 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.l.e.GlobalExceptionHandler         : [ERROR][TYPE] IllegalArgumentException | Argumento ilegal: Invalid UUID string: :id
+2025-10-26T15:23:30.988-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/:id | Requisição finalizada | Status Code: 400
+2025-10-26T15:23:40.335-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-8] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/102abf97-7f85-445d-
+2025-10-26T15:23:40.336-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-8] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 102abf97-7f85-445d-
+2025-10-26T15:23:40.337-03:00 ERROR 13560 --- [libraryapi] [http-nio-8080-exec-8] i.g.w.l.e.GlobalExceptionHandler         : [ERROR][TYPE] IllegalArgumentException | Argumento ilegal: Invalid UUID string: 102abf97-7f85-445d-
+2025-10-26T15:23:40.338-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-8] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/102abf97-7f85-445d- | Requisição finalizada | Status Code: 400
+2025-10-26T15:23:51.675-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/102abf97-7f85-445d
+2025-10-26T15:23:51.675-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 102abf97-7f85-445d
+2025-10-26T15:23:51.676-03:00 ERROR 13560 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.e.GlobalExceptionHandler         : [ERROR][TYPE] IllegalArgumentException | Argumento ilegal: Invalid UUID string: 102abf97-7f85-445d
+2025-10-26T15:23:51.677-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-10] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/102abf97-7f85-445d | Requisição finalizada | Status Code: 400
+2025-10-26T15:23:59.847-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-2] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/102abf97-7f85-
+2025-10-26T15:23:59.848-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-2] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 102abf97-7f85-
+2025-10-26T15:23:59.849-03:00 ERROR 13560 --- [libraryapi] [http-nio-8080-exec-2] i.g.w.l.e.GlobalExceptionHandler         : [ERROR][TYPE] IllegalArgumentException | Argumento ilegal: Invalid UUID string: 102abf97-7f85-
+2025-10-26T15:23:59.850-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-2] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/102abf97-7f85- | Requisição finalizada | Status Code: 400
+2025-10-26T15:25:32.323-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-4] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/4c6c2ded-d575-46ab-9d4d-
+2025-10-26T15:25:32.324-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-4] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 4c6c2ded-d575-46ab-9d4d-
+2025-10-26T15:25:32.324-03:00 ERROR 13560 --- [libraryapi] [http-nio-8080-exec-4] i.g.w.l.e.GlobalExceptionHandler         : [ERROR][TYPE] NumberFormatException | Argumento ilegal: 
+2025-10-26T15:25:32.325-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-4] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/4c6c2ded-d575-46ab-9d4d- | Requisição finalizada | Status Code: 400
+2025-10-26T15:26:20.749-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/102abf97-7f85-445d-9fb5-91fa69f295c
+2025-10-26T15:26:20.750-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.l.controller.AuthorController      : Deletando autor de ID: 102abf97-7f85-445d-9fb5-91fa69f295c
+2025-10-26T15:26:20.750-03:00 DEBUG 13560 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.libraryapi.aspects.LoggingAspect   : [START] Iniciando chamada [AuthorService.delete]
+2025-10-26T15:26:20.750-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.libraryapi.aspects.LoggingAspect   : [METHOD] Delete | Deletando Author ID 102abf97-7f85-445d-9fb5-091fa69f295c no repository
+2025-10-26T15:26:20.750-03:00 DEBUG 13560 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.libraryapi.aspects.LoggingAspect   : [START] Iniciando chamada [AuthorService.findById]
+2025-10-26T15:26:20.750-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.libraryapi.aspects.LoggingAspect   : [METHOD] FindById | Buscando Author ID [102abf97-7f85-445d-9fb5-091fa69f295c] no repository
+2025-10-26T15:26:20.754-03:00 ERROR 13560 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.l.e.GlobalExceptionHandler         : [ERROR][TYPE] EntityNotFoundException | Entidade não encontrada! Autor não encontrado! ID: 102abf97-7f85-445d-9fb5-091fa69f295c
+2025-10-26T15:26:20.756-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/102abf97-7f85-445d-9fb5-91fa69f295c | Requisição finalizada | Status Code: 404
+2025-10-26T15:28:01.375-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.l.interceptor.RequestInterceptor   : Iniciando requisição: [DELETE] /authors/102abf97-7f85-445d-9fb5-91fa69f295c7
+2025-10-26T15:28:01.376-03:00 ERROR 13560 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.l.e.GlobalExceptionHandler         : [ERROR][TYPE] AuthorizationDeniedException | Acesso negado. Usuário não possui permissão para acessar este recurso.
+2025-10-26T15:28:01.378-03:00  INFO 13560 --- [libraryapi] [http-nio-8080-exec-5] i.g.w.l.interceptor.RequestInterceptor   : [DELETE] /authors/102abf97-7f85-445d-9fb5-91fa69f295c7 | Requisição finalizada | Status Code: 403

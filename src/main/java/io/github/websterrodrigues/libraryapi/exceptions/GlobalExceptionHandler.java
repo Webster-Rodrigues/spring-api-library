@@ -33,9 +33,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(DuplicateRecordException.class)
     @ResponseStatus(HttpStatus.CONFLICT)
     public ResponseError handleDuplicateRecordException(DuplicateRecordException exception){
-        String type = exception.getClass().getSimpleName();
-
-        logger.error("[ERROR][TYPE] {} | Conflito encontrado: {}", type, exception.getMessage());
+        logger.error("[ERROR][TYPE] {} | Conflito encontrado: {}", exception.getClass().getSimpleName(), exception.getMessage());
 
         return ResponseError.conflictError(exception.getMessage());
     }
@@ -43,7 +41,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(InvalidOperationException.class)
     @ResponseStatus(HttpStatus.CONFLICT)
     public ResponseError handleInvalidOperationException(InvalidOperationException exception){
-        logger.error("[ERROR] Operação inválida: {}", exception.getMessage());
+        logger.error("[ERROR][TYPE] {} | Operação inválida: {}", exception.getClass().getSimpleName(), exception.getMessage());
 
         return ResponseError.conflictError(exception.getMessage());
     }
@@ -51,9 +49,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(IllegalArgumentException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseError handleIllegalArgumentException(IllegalArgumentException exception){
-        String type = exception.getClass().getSimpleName();
-
-        logger.error("[ERROR][TYPE] {} | Argumento ilegal: {}", type, exception.getMessage());
+        logger.error("[ERROR][TYPE] {} | Argumento ilegal: {}", exception.getClass().getSimpleName(), exception.getMessage());
 
         return ResponseError.responseError(exception.getMessage());
     }
@@ -61,7 +57,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(EntityNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseError handleEntityNotFoundException(EntityNotFoundException exception){
-        logger.error("[ERROR] Entidade não encontrada! {}", exception.getMessage());
+        logger.error("[ERROR][TYPE] {} | Entidade não encontrada! {}", exception.getClass().getSimpleName(), exception.getMessage());
 
         return ResponseError.notFoundError(exception.getMessage());
     }
@@ -69,7 +65,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(AccessDeniedException.class)
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public ResponseError handleAccessDeniedException(AccessDeniedException exception){
-        logger.error("[ERROR] Acesso negado. Usuário não possui permissão para acessar este recurso.");
+        logger.error("[ERROR][TYPE] {} | Acesso negado. Usuário não possui permissão para acessar este recurso.", exception.getClass().getSimpleName());
 
         return new ResponseError(HttpStatus.FORBIDDEN.value(), "Acesso negado. Você não possui permissão para acessar este recurso.", List.of());
     }
