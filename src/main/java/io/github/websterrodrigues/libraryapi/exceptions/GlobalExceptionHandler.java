@@ -9,9 +9,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -35,7 +33,9 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(DuplicateRecordException.class)
     @ResponseStatus(HttpStatus.CONFLICT)
     public ResponseError handleDuplicateRecordException(DuplicateRecordException exception){
-        logger.error("[ERROR] Conflito encontrado: {}", exception.getMessage());
+        String type = exception.getClass().getSimpleName();
+
+        logger.error("[ERROR][TYPE] {} | Conflito encontrado: {}", type, exception.getMessage());
 
         return ResponseError.conflictError(exception.getMessage());
     }
@@ -48,13 +48,15 @@ public class GlobalExceptionHandler {
         return ResponseError.conflictError(exception.getMessage());
     }
 
-//    @ExceptionHandler(IllegalArgumentException.class)
-//    @ResponseStatus(HttpStatus.BAD_REQUEST)
-//    public ResponseError handleIllegalArgumentException(IllegalArgumentException exception){
-//        logger.error("[ERROR] Argumento ilegal: {}", exception.getMessage());
-//
-//        return ResponseError.responseError(exception.getMessage());
-//    }
+    @ExceptionHandler(IllegalArgumentException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseError handleIllegalArgumentException(IllegalArgumentException exception){
+        String type = exception.getClass().getSimpleName();
+
+        logger.error("[ERROR][TYPE] {} | Argumento ilegal: {}", type, exception.getMessage());
+
+        return ResponseError.responseError(exception.getMessage());
+    }
 
     @ExceptionHandler(EntityNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
